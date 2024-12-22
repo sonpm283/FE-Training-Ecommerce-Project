@@ -34,7 +34,7 @@ const Input = ({
       />
 
       {errors[name] && (
-        <p class="mt-2 inline-block text-xs text-red-500">
+        <p className="mt-2 inline-block text-xs text-red-500">
           {errors[name]?.message}
         </p>
       )}

@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <main>
       <section className="relative overflow-hidden">
-        <img className="animate-zoomIn" src="/src/assets/img_banner.webp" alt />
+        <img className="animate-zoomIn" src="/src/assets/img_banner.webp" />
         <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
           <h2 className="text-xl lg:text-4xl font-bold text-white lg:leading-10 animate-slideInLeft">
             Harmony in Design: <br />
@@ -24,19 +24,19 @@ export default function HomePage() {
         <div className="container">
           <ul className="grid grid-cols-2 lg:grid-cols-4 gap-5 items-center py-14">
             <li className="flex items-center lg:justify-center lg:flex-1 gap-[15px]">
-              <img src="/src/assets/ico_freeship.svg" alt />
+              <img src="/src/assets/ico_freeship.svg" />
               <span className="text-sm lg:text-base font-semibold">
                 Free Shipping Over $50
               </span>
             </li>
             <li className="flex items-center lg:justify-center lg:flex-1 gap-[15px]">
-              <img src="/src/assets/ico_quality.svg" alt />
+              <img src="/src/assets/ico_quality.svg" />
               <span className="text-sm lg:text-base font-semibold">
                 Quality Assurance
               </span>
             </li>
             <li className="flex items-center lg:justify-center lg:flex-1 gap-[15px]">
-              <img src="/src/assets/ico_return.svg" alt />
+              <img src="/src/assets/ico_return.svg" />
               <span className="text-sm lg:text-base font-semibold">
                 Return within 14 days
               </span>
@@ -64,7 +64,7 @@ export default function HomePage() {
           <ul className="mt-10 md:grid grid-cols-3 gap-10 cursor-pointer">
             <li>
               <div className="rounded-[20px] overflow-hidden relative group">
-                <img className="image" src="/src/assets/img_collection.jpg" alt />
+                <img className="image" src="/src/assets/img_collection.jpg" />
                 <a
                   href="#none"
                   className="absolute group-hover:bottom-10 left-1/2 -translate-x-1/2 -bottom-10 mt-8 h-9 bg-white px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px] hover:bg-black hover:text-white transition-all duration-300"
@@ -75,7 +75,7 @@ export default function HomePage() {
             </li>
             <li className="mt-6 md:mt-0">
               <div className="rounded-[20px] overflow-hidden relative group">
-                <img className="image" src="/src/assets/img_collection2.webp" alt />
+                <img className="image" src="/src/assets/img_collection2.webp" />
                 <a
                   href="#none"
                   className="absolute group-hover:bottom-10 left-1/2 -translate-x-1/2 -bottom-10 mt-8 h-9 bg-white px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px] hover:bg-black hover:text-white transition-all duration-300"
@@ -86,7 +86,7 @@ export default function HomePage() {
             </li>
             <li className="mt-6 md:mt-0">
               <div className="rounded-[20px] overflow-hidden relative group">
-                <img className="image" src="/src/assets/img_collection3.webp" alt />
+                <img className="image" src="/src/assets/img_collection3.webp" />
                 <a
                   href="#none"
                   className="absolute group-hover:bottom-10 left-1/2 -translate-x-1/2 -bottom-10 mt-8 h-9 bg-white px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px] hover:bg-black hover:text-white transition-all duration-300"
@@ -129,7 +129,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_heart.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -141,7 +140,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_reload.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -153,7 +151,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_search.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -162,34 +159,28 @@ export default function HomePage() {
                   <img
                     className="block size-full object-cover"
                     src=".//src/assets/img_product.webp"
-                    alt
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_active.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                 </div>
                 <h3 className="text-15 mt-2">Egg Dining Table</h3>
@@ -199,7 +190,7 @@ export default function HomePage() {
                 <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                   <a href="product-detail.html" className="bg-red">
                     <div className="flex items-center justify-center font-bold text-15 text-center">
-                      <span className>$70.00</span>
+                      <span>$70.00</span>
                     </div>
                   </a>
                   <a
@@ -222,7 +213,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_heart.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -234,7 +224,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_reload.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -246,7 +235,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_search.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -255,34 +243,28 @@ export default function HomePage() {
                   <img
                     className="block size-full object-cover"
                     src=".//src/assets/img_product2.webp"
-                    alt
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_active.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                 </div>
                 <h3 className="text-15 mt-2">Century Starburst Clock</h3>
@@ -292,7 +274,7 @@ export default function HomePage() {
                 <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                   <a href="product-detail.html">
                     <div className="flex items-center justify-center font-bold text-15 text-center">
-                      <span className>$55.00</span>
+                      <span>$55.00</span>
                     </div>
                   </a>
                   <a
@@ -310,7 +292,6 @@ export default function HomePage() {
                   <img
                     className="block size-full object-cover"
                     src=".//src/assets/img_product3.webp"
-                    alt
                   />
                 </div>
                 <ul className="absolute bottom-28 left-4 z-10 flex flex-col gap-3">
@@ -322,7 +303,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_heart.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -334,7 +314,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_reload.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -346,7 +325,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_search.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -355,27 +333,22 @@ export default function HomePage() {
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_active.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                 </div>
                 <h3 className="text-15 mt-2">Bouquet Flower Vase</h3>
@@ -385,8 +358,8 @@ export default function HomePage() {
                 <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                   <a href="product-detail.html">
                     <div className="flex items-center justify-center font-bold text-15 text-center">
-                      <span className>$59.00</span> -
-                      <span className>$60.00</span>
+                      <span>$59.00</span> -
+                      <span>$60.00</span>
                     </div>
                   </a>
                   <a
@@ -412,7 +385,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_heart.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -424,7 +396,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_reload.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -436,7 +407,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_search.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -445,34 +415,28 @@ export default function HomePage() {
                   <img
                     className="block size-full object-cover"
                     src=".//src/assets/img_product4.webp"
-                    alt
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_active.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                 </div>
                 <h3 className="text-15 mt-2">Caravaggio Read Wall Light</h3>
@@ -507,7 +471,10 @@ export default function HomePage() {
             <li className="mt-6 md:mt-0">
               <a href="#none">
                 <div className="rounded-lg overflow-hidden">
-                  <img className="image" src=".//src/assets/img_category.webp" alt />
+                  <img
+                    className="image"
+                    src=".//src/assets/img_category.webp"
+                  />
                 </div>
                 <h3 className="mt-4 font-semibold">Bathroom</h3>
               </a>
@@ -518,7 +485,6 @@ export default function HomePage() {
                   <img
                     className="image"
                     src=".//src/assets/img_category2.webp"
-                    alt
                   />
                 </div>
                 <h3 className="mt-4 font-semibold">Chair</h3>
@@ -530,7 +496,6 @@ export default function HomePage() {
                   <img
                     className="image"
                     src=".//src/assets/img_category3.webp"
-                    alt
                   />
                 </div>
                 <h3 className="mt-4 font-semibold">Decor</h3>
@@ -542,7 +507,6 @@ export default function HomePage() {
                   <img
                     className="image"
                     src=".//src/assets/img_category4.webp"
-                    alt
                   />
                 </div>
                 <h3 className="mt-4 font-semibold">Lamp</h3>
@@ -569,7 +533,7 @@ export default function HomePage() {
               </a>
             </div>
             <div className="rounded-2xl overflow-hidden mt-6 lg:mt-0">
-              <img className="image" src="/src/assets/img_experience.webp" alt />
+              <img className="image" src="/src/assets/img_experience.webp" />
             </div>
           </div>
         </div>
@@ -605,7 +569,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_heart.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -617,7 +580,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_reload.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -629,7 +591,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_search.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -638,34 +599,28 @@ export default function HomePage() {
                   <img
                     className="block size-full object-cover"
                     src=".//src/assets/img_product.webp"
-                    alt
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_active.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                 </div>
                 <h3 className="text-15 mt-2">Egg Dining Table</h3>
@@ -675,7 +630,7 @@ export default function HomePage() {
                 <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                   <a href="product-detail.html">
                     <div className="flex items-center justify-center font-bold text-15 text-center">
-                      <span className>$70.00</span>
+                      <span>$70.00</span>
                     </div>
                   </a>
                   <a
@@ -698,7 +653,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_heart.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -710,7 +664,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_reload.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -722,7 +675,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_search.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -731,34 +683,28 @@ export default function HomePage() {
                   <img
                     className="block size-full object-cover"
                     src=".//src/assets/img_product2.webp"
-                    alt
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_active.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                 </div>
                 <h3 className="text-15 mt-2">Century Starburst Clock</h3>
@@ -768,7 +714,7 @@ export default function HomePage() {
                 <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                   <a href="product-detail.html">
                     <div className="flex items-center justify-center font-bold text-15 text-center">
-                      <span className>$55.00</span>
+                      <span>$55.00</span>
                     </div>
                   </a>
                   <a
@@ -786,7 +732,6 @@ export default function HomePage() {
                   <img
                     className="block size-full object-cover"
                     src=".//src/assets/img_product3.webp"
-                    alt
                   />
                 </div>
                 <ul className="absolute bottom-28 left-4 z-10 flex flex-col gap-3">
@@ -798,7 +743,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_heart.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -810,7 +754,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_reload.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -822,7 +765,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_search.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -831,27 +773,22 @@ export default function HomePage() {
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_active.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                 </div>
                 <h3 className="text-15 mt-2">Bouquet Flower Vase</h3>
@@ -861,8 +798,8 @@ export default function HomePage() {
                 <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                   <a href="product-detail.html">
                     <div className="flex items-center justify-center font-bold text-15 text-center">
-                      <span className>$59.00</span> -
-                      <span className>$60.00</span>
+                      <span>$59.00</span> -
+                      <span>$60.00</span>
                     </div>
                   </a>
                   <a
@@ -888,7 +825,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_heart.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -900,7 +836,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_reload.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -912,7 +847,6 @@ export default function HomePage() {
                       <img
                         src=".//src/assets/ico_search.png"
                         className="image size-4 rouded-full"
-                        alt
                       />
                     </button>
                   </li>
@@ -921,34 +855,28 @@ export default function HomePage() {
                   <img
                     className="block size-full object-cover"
                     src=".//src/assets/img_product4.webp"
-                    alt
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_active.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                   <img
                     className="size-13 inline-block"
                     src=".//src/assets/ico_star_gray.png"
-                    alt
                   />
                 </div>
                 <h3 className="text-15 mt-2">Caravaggio Read Wall Light</h3>

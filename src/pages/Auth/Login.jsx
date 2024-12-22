@@ -1,19 +1,21 @@
 import Button from '@components/Button'
 import Input from '@components/Input'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
-
-const schema = yup.object().shape({
-  email: yup.string().email('Email không hợp lệ').required('Email là bắt buộc'),
-  password: yup
-    .string()
-    .min(6, 'Mật khẩu phải có ít nhất 6 ký tự')
-    .required('Mật khẩu là bắt buộc'),
-})
+import { useLoginMutation } from '@apis/rootApi'
+import { useEffect } from 'react'
+import { toast } from 'react-toastify'
+import { loginSchema } from '@schemas/authSchemas'
+import { login } from '@redux/slices/authSlice'
+import { useDispatch } from 'react-redux'
 
 export default function Login() {
+  const dispath = useDispatch()
+  const navigate = useNavigate()
+  const [loginMutation, { data = {}, isLoading, isError, error, isSuccess }] =
+    useLoginMutation()
+
   const {
     handleSubmit,
     control,
@@ -22,14 +24,25 @@ export default function Login() {
     defaultValues: {
       email: '',
       password: '',
-      confirmPassword: '',
     },
-    resolver: yupResolver(schema),
+    resolver: yupResolver(loginSchema),
   })
 
   const onSubmit = (data) => {
-    console.log(data)
+    loginMutation(data)
   }
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(error?.data?.message)
+    }
+
+    if (isSuccess) {
+      dispath(login(data))
+      navigate('/')
+      toast.success(data.message)
+    }
+  }, [navigate, isError, data, dispath, isSuccess, data.message])
 
   return (
     <>
@@ -58,7 +71,7 @@ export default function Login() {
           className="w-full uppercase h-[50px] bg-black text-white font-semibold text-sm px-4 flex-1 rounded-lg hover:bg hover:bg-white border hover:border-black hover:text-black transition-all"
           type="submit"
         >
-          Login
+          {isLoading ? <p>Loading...</p> : <span>Login</span>}
         </Button>
       </form>
 

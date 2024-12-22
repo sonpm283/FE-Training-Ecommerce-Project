@@ -8,7 +8,9 @@
       "@utils/*": ["src/utils/*"],
       "@apis/*": ["src/apis/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@context/*": ["src/context/*"]
+      "@context/*": ["src/context/*"],
+      "@redux/*": ["src/redux/*"],
+      "@schemas/*": ["src/schemas/*"],
     }
   }
 }

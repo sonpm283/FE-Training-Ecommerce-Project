@@ -4,7 +4,7 @@ export default function ProductList() {
   return (
     <main>
       <section className="relative">
-        <img src="/src/assets/img_product_list_banner.webp" alt />
+        <img src="/src/assets/img_product_list_banner.webp" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
           <h2 className="text-4xl font-semibold">Products</h2>
           <ul className="flex items-center gap-3 justify-center mt-2">
@@ -21,7 +21,7 @@ export default function ProductList() {
         <div className="container">
           <div className="lg:grid grid-cols-5">
             <div className="col-span-1 p-0 lg:p-4">
-              <div className>
+              <div>
                 <h2 className="text-lg font-semibold">Category</h2>
                 <ul className="mt-4 space-y-3">
                   <li>
@@ -90,7 +90,7 @@ export default function ProductList() {
             </div>
             <div className="col-span-4 mt-6 lg:mt-0">
               <div className="py-2 px-3 border rounded-full cursor-pointer w-max">
-                <select name id className="w-full text-sm">
+                <select className="w-full text-sm">
                   <option value={1}>Price, low to hight</option>
                   <option value={2}>Price, hight to low</option>
                   <option value={3}>Date, old to new</option>
@@ -113,7 +113,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_heart.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -125,7 +124,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_reload.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -137,7 +135,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_search.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -146,34 +143,28 @@ export default function ProductList() {
                       <img
                         className="block size-full object-cover"
                         src="/src/assets/img_product.webp"
-                        alt
                       />
                     </div>
                     <div className="flex justify-center items-center gap-1 mt-5">
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_active.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                     </div>
                     <h3 className="text-15 mt-2">Egg Dining Table</h3>
@@ -183,7 +174,7 @@ export default function ProductList() {
                     <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                       <a href="product-detail.html" className="bg-red">
                         <div className="flex items-center justify-center font-bold text-15 text-center">
-                          <span className>$70.00</span>
+                          <span>$70.00</span>
                         </div>
                       </a>
                       <a
@@ -206,7 +197,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_heart.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -218,7 +208,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_reload.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -230,7 +219,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_search.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -239,34 +227,28 @@ export default function ProductList() {
                       <img
                         className="block size-full object-cover"
                         src="/src/assets/img_product2.webp"
-                        alt
                       />
                     </div>
                     <div className="flex justify-center items-center gap-1 mt-5">
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_active.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                     </div>
                     <h3 className="text-15 mt-2">Century Starburst Clock</h3>
@@ -276,7 +258,7 @@ export default function ProductList() {
                     <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                       <a href="product-detail.html">
                         <div className="flex items-center justify-center font-bold text-15 text-center">
-                          <span className>$55.00</span>
+                          <span>$55.00</span>
                         </div>
                       </a>
                       <a
@@ -294,7 +276,6 @@ export default function ProductList() {
                       <img
                         className="block size-full object-cover"
                         src="/src/assets/img_product3.webp"
-                        alt
                       />
                     </div>
                     <ul className="absolute bottom-28 left-4 z-10 flex flex-col gap-3">
@@ -306,7 +287,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_heart.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -318,7 +298,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_reload.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -330,7 +309,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_search.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -339,27 +317,22 @@ export default function ProductList() {
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_active.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                     </div>
                     <h3 className="text-15 mt-2">Bouquet Flower Vase</h3>
@@ -369,8 +342,7 @@ export default function ProductList() {
                     <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                       <a href="product-detail.html">
                         <div className="flex items-center justify-center font-bold text-15 text-center">
-                          <span className>$59.00</span> -
-                          <span className>$60.00</span>
+                          <span>$59.00</span> -<span>$60.00</span>
                         </div>
                       </a>
                       <a
@@ -396,7 +368,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_heart.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -408,7 +379,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_reload.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -420,7 +390,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_search.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -429,34 +398,28 @@ export default function ProductList() {
                       <img
                         className="block size-full object-cover"
                         src="/src/assets/img_product4.webp"
-                        alt
                       />
                     </div>
                     <div className="flex justify-center items-center gap-1 mt-5">
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_active.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                     </div>
                     <h3 className="text-15 mt-2">Caravaggio Read Wall Light</h3>
@@ -495,7 +458,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_heart.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -507,7 +469,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_reload.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -519,7 +480,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_search.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -528,34 +488,28 @@ export default function ProductList() {
                       <img
                         className="block size-full object-cover"
                         src="/src/assets/img_product.webp"
-                        alt
                       />
                     </div>
                     <div className="flex justify-center items-center gap-1 mt-5">
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_active.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                     </div>
                     <h3 className="text-15 mt-2">Egg Dining Table</h3>
@@ -565,7 +519,7 @@ export default function ProductList() {
                     <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                       <a href="product-detail.html" className="bg-red">
                         <div className="flex items-center justify-center font-bold text-15 text-center">
-                          <span className>$70.00</span>
+                          <span>$70.00</span>
                         </div>
                       </a>
                       <a
@@ -588,7 +542,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_heart.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -600,7 +553,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_reload.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -612,7 +564,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_search.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -621,34 +572,28 @@ export default function ProductList() {
                       <img
                         className="block size-full object-cover"
                         src="/src/assets/img_product2.webp"
-                        alt
                       />
                     </div>
                     <div className="flex justify-center items-center gap-1 mt-5">
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_active.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                     </div>
                     <h3 className="text-15 mt-2">Century Starburst Clock</h3>
@@ -658,7 +603,7 @@ export default function ProductList() {
                     <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                       <a href="product-detail.html">
                         <div className="flex items-center justify-center font-bold text-15 text-center">
-                          <span className>$55.00</span>
+                          <span>$55.00</span>
                         </div>
                       </a>
                       <a
@@ -676,7 +621,6 @@ export default function ProductList() {
                       <img
                         className="block size-full object-cover"
                         src="/src/assets/img_product3.webp"
-                        alt
                       />
                     </div>
                     <ul className="absolute bottom-28 left-4 z-10 flex flex-col gap-3">
@@ -688,7 +632,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_heart.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -700,7 +643,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_reload.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -712,7 +654,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_search.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -721,27 +662,22 @@ export default function ProductList() {
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_active.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                     </div>
                     <h3 className="text-15 mt-2">Bouquet Flower Vase</h3>
@@ -751,8 +687,7 @@ export default function ProductList() {
                     <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                       <a href="product-detail.html">
                         <div className="flex items-center justify-center font-bold text-15 text-center">
-                          <span className>$59.00</span> -
-                          <span className>$60.00</span>
+                          <span>$59.00</span> -<span>$60.00</span>
                         </div>
                       </a>
                       <a
@@ -778,7 +713,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_heart.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -790,7 +724,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_reload.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -802,7 +735,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_search.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -811,34 +743,28 @@ export default function ProductList() {
                       <img
                         className="block size-full object-cover"
                         src="/src/assets/img_product4.webp"
-                        alt
                       />
                     </div>
                     <div className="flex justify-center items-center gap-1 mt-5">
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_active.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                     </div>
                     <h3 className="text-15 mt-2">Caravaggio Read Wall Light</h3>
@@ -877,7 +803,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_heart.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -889,7 +814,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_reload.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -901,7 +825,6 @@ export default function ProductList() {
                           <img
                             src="/src/assets/ico_search.png"
                             className="image size-4 rouded-full"
-                            alt
                           />
                         </button>
                       </li>
@@ -910,34 +833,28 @@ export default function ProductList() {
                       <img
                         className="block size-full object-cover"
                         src="/src/assets/img_product.webp"
-                        alt
                       />
                     </div>
                     <div className="flex justify-center items-center gap-1 mt-5">
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_active.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                       <img
                         className="size-13 inline-block"
                         src="/src/assets/ico_star_gray.png"
-                        alt
                       />
                     </div>
                     <h3 className="text-15 mt-2">Egg Dining Table</h3>
@@ -947,7 +864,7 @@ export default function ProductList() {
                     <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                       <a href="product-detail.html" className="bg-red">
                         <div className="flex items-center justify-center font-bold text-15 text-center">
-                          <span className>$70.00</span>
+                          <span>$70.00</span>
                         </div>
                       </a>
                       <a
@@ -967,7 +884,6 @@ export default function ProductList() {
                       <img
                         className="size-4"
                         src="/src/assets/ico_chevron_left.png"
-                        alt
                       />
                     </button>
                   </li>
@@ -1005,7 +921,6 @@ export default function ProductList() {
                       <img
                         className="size-4"
                         src="/src/assets/ico_chevron_right.png"
-                        alt
                       />
                     </button>
                   </li>

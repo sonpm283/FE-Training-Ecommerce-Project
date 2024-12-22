@@ -16,6 +16,7 @@ export default defineConfig({
       '@context': path.resolve(__dirname, './src/context'),
       '@apis': path.resolve(__dirname, './src/apis'),
       '@redux': path.resolve(__dirname, './src/redux'),
+      '@schemas': path.resolve(__dirname, './src/schemas'),
     },
   },
 })

@@ -1,40 +1,48 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { useForm } from 'react-hook-form'
+import { useEffect } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
 import Input from '@components/Input'
 import Button from '@components/Button'
-
-const schema = yup.object().shape({
-  email: yup.string().email('Email không hợp lệ').required('Email là bắt buộc'),
-  password: yup
-    .string()
-    .min(6, 'Mật khẩu phải có ít nhất 6 ký tự')
-    .required('Mật khẩu là bắt buộc'),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password'), null], 'Mật khẩu xác nhận không khớp')
-    .required('Xác nhận mật khẩu là bắt buộc'),
-})
+import { useRegisterMutation } from '@apis/rootApi'
+import { registerSchema } from '@schemas/authSchemas'
+import { toast } from 'react-toastify'
 
 export default function Register() {
+  const navigate = useNavigate()
+  const [
+    registerMutation,
+    { data = {}, isLoading, error, isError, isSuccess },
+  ] = useRegisterMutation()
+
   const {
     handleSubmit,
     control,
     formState: { errors },
   } = useForm({
     defaultValues: {
+      name: '',
       email: '',
       password: '',
       confirmPassword: '',
     },
-    resolver: yupResolver(schema),
+    resolver: yupResolver(registerSchema),
   })
 
-  const onSubmit = (data) => {
-    console.log(data)
+  const onSubmit = (formData) => {
+    registerMutation(formData)
   }
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate('/login')
+      toast.success(data.message)
+    }
+    if (isError) {
+      toast.error(error?.data?.message)
+    }
+  }, [navigate, isSuccess, data.message, isError, error])
 
   return (
     <>
@@ -43,13 +51,19 @@ export default function Register() {
       </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
+          name="name"
+          label="User Name"
+          control={control}
+          placeholder="Tên của bạn"
+          errors={errors}
+        />
+        <Input
           name="email"
           label="Email"
           control={control}
           placeholder="Email của bạn"
           errors={errors}
         />
-
         <Input
           name="password"
           label="Mật khẩu"
@@ -58,7 +72,6 @@ export default function Register() {
           placeholder="Mật khẩu của bạn"
           errors={errors}
         />
-
         <Input
           name="confirmPassword"
           label="Xác nhận mật khẩu"
@@ -72,7 +85,7 @@ export default function Register() {
           className="w-full uppercase h-[50px] bg-black text-white font-semibold text-sm px-4 flex-1 rounded-lg hover:bg hover:bg-white border hover:border-black hover:text-black transition-all"
           type="submit"
         >
-          Register
+          {isLoading ? <p>Loading...</p> : <span>Register</span>}
         </Button>
       </form>
 

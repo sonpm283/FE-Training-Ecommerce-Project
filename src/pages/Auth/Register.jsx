@@ -35,12 +35,14 @@ export default function Register() {
   }
 
   useEffect(() => {
+    if (isError) {
+      const errorMessage = error?.data?.message || 'Có lỗi xảy ra khi đăng kí!'
+      toast.error(errorMessage)
+    }
+
     if (isSuccess) {
       navigate('/login')
       toast.success(data.message)
-    }
-    if (isError) {
-      toast.error(error?.data?.message)
     }
   }, [navigate, isSuccess, data.message, isError, error])
 

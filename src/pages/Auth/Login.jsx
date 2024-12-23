@@ -4,16 +4,16 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useLoginMutation } from '@apis/rootApi'
-import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { loginSchema } from '@schemas/authSchemas'
 import { login } from '@redux/slices/authSlice'
 import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 
 export default function Login() {
-  const dispath = useDispatch()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [loginMutation, { data = {}, isLoading, isError, error, isSuccess }] =
+  const [loginMutation, { data = {}, isLoading, isSuccess, error, isError }] =
     useLoginMutation()
 
   const {
@@ -28,21 +28,35 @@ export default function Login() {
     resolver: yupResolver(loginSchema),
   })
 
-  const onSubmit = (data) => {
-    loginMutation(data)
+  // const onSubmit = async (formData) => {
+  //   try {
+  //     const result = await loginMutation(formData).unwrap()
+  //     dispatch(login(result))
+  //     navigate('/')
+  //     toast.success(result.message)
+  //   } catch (err) {
+  //     toast.error(err?.data?.message)
+  //   }
+  // }
+
+  const onSubmit = (formData) => {
+    loginMutation(formData)
   }
 
   useEffect(() => {
     if (isError) {
-      toast.error(error?.data?.message)
+      const errorMessage = error?.data?.message || 'Có lỗi xảy ra khi đăng nhập'
+      toast.error(errorMessage)
     }
+  }, [isError, error])
 
+  useEffect(() => {
     if (isSuccess) {
-      dispath(login(data))
+      dispatch(login(data))
       navigate('/')
       toast.success(data.message)
     }
-  }, [navigate, isError, data, dispath, isSuccess, data.message])
+  }, [data, data.message, isSuccess, dispatch, navigate])
 
   return (
     <>
@@ -57,7 +71,6 @@ export default function Login() {
           placeholder="Email của bạn"
           errors={errors}
         />
-
         <Input
           name="password"
           label="Mật khẩu"
@@ -66,7 +79,6 @@ export default function Login() {
           placeholder="Mật khẩu của bạn"
           errors={errors}
         />
-
         <Button
           className="w-full uppercase h-[50px] bg-black text-white font-semibold text-sm px-4 flex-1 rounded-lg hover:bg hover:bg-white border hover:border-black hover:text-black transition-all"
           type="submit"

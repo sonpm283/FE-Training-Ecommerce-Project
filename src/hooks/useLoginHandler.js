@@ -1,4 +1,4 @@
-import { useLoginMutation } from '@apis/rootApi'
+import { useLoginMutation } from '@apis/authApi'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { login } from '@redux/slices/authSlice'
 import { loginSchema } from '@schemas/authSchemas'

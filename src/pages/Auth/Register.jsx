@@ -1,56 +1,13 @@
-import { Link, useNavigate } from 'react-router-dom'
-
-import { useForm } from 'react-hook-form'
-import { useEffect } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
+import { Link } from 'react-router-dom'
 import Input from '@components/Input'
 import Button from '@components/Button'
-import { useRegisterMutation } from '@apis/rootApi'
-import { registerSchema } from '@schemas/authSchemas'
-import { toast } from 'react-toastify'
+import useRegisterHandler from '@hooks/useRegisterHandler'
 
 export default function Register() {
-  const navigate = useNavigate()
-  const [
-    registerMutation,
-    { data = {}, isLoading, error, isError, isSuccess },
-  ] = useRegisterMutation()
-
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-    },
-    resolver: yupResolver(registerSchema),
-  })
-
-  const onSubmit = (formData) => {
-    registerMutation(formData)
-  }
-
-  useEffect(() => {
-    if (isError) {
-      const errorMessage = error?.data?.message || 'Có lỗi xảy ra khi đăng kí!'
-      toast.error(errorMessage)
-    }
-
-    if (isSuccess) {
-      navigate('/login')
-      toast.success(data.message)
-    }
-  }, [navigate, isSuccess, data.message, isError, error])
-
+  const { handleSubmit, onSubmit, control, errors, isLoading } = useRegisterHandler()
   return (
     <>
-      <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-        Register
-      </h2>
+      <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">Register</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           name="name"

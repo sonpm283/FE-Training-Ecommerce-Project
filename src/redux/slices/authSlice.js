@@ -11,11 +11,25 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
+      console.log(action.payload.token.accessToken);
+      
       state.accessToken = action.payload.token.accessToken
       state.refreshToken = action.payload.token.refreshToken
+    },
+    saveUserProfile: (state, action) => {
+      state.userProfile = action.payload
     },
   },
 })
 
-export const { login } = authSlice.actions
+
+export const selectToken = (state) => {
+  return state.auth.accessToken
+}
+
+export const selectCurrentUser = (state) => {
+  return state.auth.userProfile
+}
+
+export const { login, saveUserProfile } = authSlice.actions
 export default authSlice.reducer

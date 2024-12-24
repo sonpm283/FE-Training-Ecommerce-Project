@@ -4,6 +4,15 @@ export const rootApi = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_URL,
+    prepareHeaders: (headers, { getState }) => {
+      console.log('rootApi', getState().auth.accessToken)
+      const token = getState().auth.accessToken;
+  
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
   endpoints: () => ({}),
 })

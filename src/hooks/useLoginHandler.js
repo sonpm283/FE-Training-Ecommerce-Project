@@ -32,6 +32,7 @@ export function useLoginHandler() {
       dispatch(login(response))
       navigate('/')
       toast.success(response.message)
+      
     } catch (error) {
       const errorMessage = error?.data?.message || 'Login failed. Please try again!'
       toast.error(errorMessage)

@@ -1,6 +1,3 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
 export default function HomePage() {
   return (
     <main>
@@ -25,27 +22,19 @@ export default function HomePage() {
           <ul className="grid grid-cols-2 lg:grid-cols-4 gap-5 items-center py-14">
             <li className="flex items-center lg:justify-center lg:flex-1 gap-[15px]">
               <img src="/src/assets/ico_freeship.svg" />
-              <span className="text-sm lg:text-base font-semibold">
-                Free Shipping Over $50
-              </span>
+              <span className="text-sm lg:text-base font-semibold">Free Shipping Over $50</span>
             </li>
             <li className="flex items-center lg:justify-center lg:flex-1 gap-[15px]">
               <img src="/src/assets/ico_quality.svg" />
-              <span className="text-sm lg:text-base font-semibold">
-                Quality Assurance
-              </span>
+              <span className="text-sm lg:text-base font-semibold">Quality Assurance</span>
             </li>
             <li className="flex items-center lg:justify-center lg:flex-1 gap-[15px]">
               <img src="/src/assets/ico_return.svg" />
-              <span className="text-sm lg:text-base font-semibold">
-                Return within 14 days
-              </span>
+              <span className="text-sm lg:text-base font-semibold">Return within 14 days</span>
             </li>
             <li className="flex items-center lg:justify-center lg:flex-1 gap-[15px]">
               <img src="/src/assets/ico_support.svg" />
-              <span className="text-sm lg:text-base font-semibold">
-                Support 24/7
-              </span>
+              <span className="text-sm lg:text-base font-semibold">Support 24/7</span>
             </li>
           </ul>
         </div>
@@ -103,9 +92,7 @@ export default function HomePage() {
           <div className="lg:flex justify-between items-end">
             <div>
               <h2 className="text-3xl font-bold">Bestseller</h2>
-              <p className="mt-2 text-lightGray">
-                Experience the best products at our store!
-              </p>
+              <p className="mt-2 text-lightGray">Experience the best products at our store!</p>
             </div>
             <a
               href="#none"
@@ -126,10 +113,7 @@ export default function HomePage() {
                       type="button"
                       className="shadow-lg p-3 rounded-full bg-white block hover:bg-slate-200 transition-all"
                     >
-                      <img
-                        src=".//src/assets/ico_heart.png"
-                        className="image size-4 rouded-full"
-                      />
+                      <img src=".//src/assets/ico_heart.png" className="image size-4 rouded-full" />
                     </button>
                   </li>
                   <li className="opacity-0 translate-y-4 duration-200 group-hover:opacity-100 group-hover:translate-y-0 transition-all delay-100">
@@ -162,26 +146,11 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_active.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_active.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
                 </div>
                 <h3 className="text-15 mt-2">Egg Dining Table</h3>
               </a>
@@ -210,10 +179,7 @@ export default function HomePage() {
                       type="button"
                       className="shadow-lg p-3 rounded-full bg-white block hover:bg-slate-200 transition-all"
                     >
-                      <img
-                        src=".//src/assets/ico_heart.png"
-                        className="image size-4 rouded-full"
-                      />
+                      <img src=".//src/assets/ico_heart.png" className="image size-4 rouded-full" />
                     </button>
                   </li>
                   <li className="opacity-0 translate-y-4 duration-200 group-hover:opacity-100 group-hover:translate-y-0 transition-all delay-100">
@@ -246,26 +212,11 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_active.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_active.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
                 </div>
                 <h3 className="text-15 mt-2">Century Starburst Clock</h3>
               </a>
@@ -300,10 +251,7 @@ export default function HomePage() {
                       type="button"
                       className="shadow-lg p-3 rounded-full bg-white block hover:bg-slate-200 transition-all"
                     >
-                      <img
-                        src=".//src/assets/ico_heart.png"
-                        className="image size-4 rouded-full"
-                      />
+                      <img src=".//src/assets/ico_heart.png" className="image size-4 rouded-full" />
                     </button>
                   </li>
                   <li className="opacity-0 translate-y-4 duration-200 group-hover:opacity-100 group-hover:translate-y-0 transition-all delay-100">
@@ -330,26 +278,11 @@ export default function HomePage() {
                   </li>
                 </ul>
                 <div className="flex justify-center items-center gap-1 mt-5">
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_active.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_active.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
                 </div>
                 <h3 className="text-15 mt-2">Bouquet Flower Vase</h3>
               </a>
@@ -358,8 +291,7 @@ export default function HomePage() {
                 <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                   <a href="product-detail.html">
                     <div className="flex items-center justify-center font-bold text-15 text-center">
-                      <span>$59.00</span> -
-                      <span>$60.00</span>
+                      <span>$59.00</span> -<span>$60.00</span>
                     </div>
                   </a>
                   <a
@@ -382,10 +314,7 @@ export default function HomePage() {
                       type="button"
                       className="shadow-lg p-3 rounded-full bg-white block hover:bg-slate-200 transition-all"
                     >
-                      <img
-                        src=".//src/assets/ico_heart.png"
-                        className="image size-4 rouded-full"
-                      />
+                      <img src=".//src/assets/ico_heart.png" className="image size-4 rouded-full" />
                     </button>
                   </li>
                   <li className="opacity-0 translate-y-4 duration-200 group-hover:opacity-100 group-hover:translate-y-0 transition-all delay-100">
@@ -418,26 +347,11 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_active.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_active.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
                 </div>
                 <h3 className="text-15 mt-2">Caravaggio Read Wall Light</h3>
               </a>
@@ -446,10 +360,8 @@ export default function HomePage() {
                 <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                   <a href="product-detail.html">
                     <div className="flex items-center justify-center font-bold text-15 text-center">
-                      <span className="line-through text-lightGray">
-                        $59.00{' '}
-                      </span>{' '}
-                      -<span className="text-red-600">$60.00</span>
+                      <span className="line-through text-lightGray">$59.00 </span> -
+                      <span className="text-red-600">$60.00</span>
                     </div>
                   </a>
                   <a
@@ -471,10 +383,7 @@ export default function HomePage() {
             <li className="mt-6 md:mt-0">
               <a href="#none">
                 <div className="rounded-lg overflow-hidden">
-                  <img
-                    className="image"
-                    src=".//src/assets/img_category.webp"
-                  />
+                  <img className="image" src=".//src/assets/img_category.webp" />
                 </div>
                 <h3 className="mt-4 font-semibold">Bathroom</h3>
               </a>
@@ -482,10 +391,7 @@ export default function HomePage() {
             <li className="mt-6 md:mt-0">
               <a href="#none">
                 <div className="rounded-lg overflow-hidden">
-                  <img
-                    className="image"
-                    src=".//src/assets/img_category2.webp"
-                  />
+                  <img className="image" src=".//src/assets/img_category2.webp" />
                 </div>
                 <h3 className="mt-4 font-semibold">Chair</h3>
               </a>
@@ -493,10 +399,7 @@ export default function HomePage() {
             <li className="mt-6 md:mt-0">
               <a href="#none">
                 <div className="rounded-lg overflow-hidden">
-                  <img
-                    className="image"
-                    src=".//src/assets/img_category3.webp"
-                  />
+                  <img className="image" src=".//src/assets/img_category3.webp" />
                 </div>
                 <h3 className="mt-4 font-semibold">Decor</h3>
               </a>
@@ -504,10 +407,7 @@ export default function HomePage() {
             <li className="mt-6 md:mt-0">
               <a href="#none">
                 <div className="rounded-lg overflow-hidden">
-                  <img
-                    className="image"
-                    src=".//src/assets/img_category4.webp"
-                  />
+                  <img className="image" src=".//src/assets/img_category4.webp" />
                 </div>
                 <h3 className="mt-4 font-semibold">Lamp</h3>
               </a>
@@ -543,9 +443,7 @@ export default function HomePage() {
           <div className="lg:flex justify-between items-end">
             <div>
               <h2 className="text-3xl font-bold">New Arrivals</h2>
-              <p className="mt-2 text-lightGray">
-                Experience the best products at our store!
-              </p>
+              <p className="mt-2 text-lightGray">Experience the best products at our store!</p>
             </div>
             <a
               href="#none"
@@ -566,10 +464,7 @@ export default function HomePage() {
                       type="button"
                       className="shadow-lg p-3 rounded-full bg-white block hover:bg-slate-200 transition-all"
                     >
-                      <img
-                        src=".//src/assets/ico_heart.png"
-                        className="image size-4 rouded-full"
-                      />
+                      <img src=".//src/assets/ico_heart.png" className="image size-4 rouded-full" />
                     </button>
                   </li>
                   <li className="opacity-0 translate-y-4 duration-200 group-hover:opacity-100 group-hover:translate-y-0 transition-all delay-100">
@@ -602,26 +497,11 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_active.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_active.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
                 </div>
                 <h3 className="text-15 mt-2">Egg Dining Table</h3>
               </a>
@@ -650,10 +530,7 @@ export default function HomePage() {
                       type="button"
                       className="shadow-lg p-3 rounded-full bg-white block hover:bg-slate-200 transition-all"
                     >
-                      <img
-                        src=".//src/assets/ico_heart.png"
-                        className="image size-4 rouded-full"
-                      />
+                      <img src=".//src/assets/ico_heart.png" className="image size-4 rouded-full" />
                     </button>
                   </li>
                   <li className="opacity-0 translate-y-4 duration-200 group-hover:opacity-100 group-hover:translate-y-0 transition-all delay-100">
@@ -686,26 +563,11 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_active.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_active.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
                 </div>
                 <h3 className="text-15 mt-2">Century Starburst Clock</h3>
               </a>
@@ -740,10 +602,7 @@ export default function HomePage() {
                       type="button"
                       className="shadow-lg p-3 rounded-full bg-white block hover:bg-slate-200 transition-all"
                     >
-                      <img
-                        src=".//src/assets/ico_heart.png"
-                        className="image size-4 rouded-full"
-                      />
+                      <img src=".//src/assets/ico_heart.png" className="image size-4 rouded-full" />
                     </button>
                   </li>
                   <li className="opacity-0 translate-y-4 duration-200 group-hover:opacity-100 group-hover:translate-y-0 transition-all delay-100">
@@ -770,26 +629,11 @@ export default function HomePage() {
                   </li>
                 </ul>
                 <div className="flex justify-center items-center gap-1 mt-5">
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_active.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_active.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
                 </div>
                 <h3 className="text-15 mt-2">Bouquet Flower Vase</h3>
               </a>
@@ -798,8 +642,7 @@ export default function HomePage() {
                 <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                   <a href="product-detail.html">
                     <div className="flex items-center justify-center font-bold text-15 text-center">
-                      <span>$59.00</span> -
-                      <span>$60.00</span>
+                      <span>$59.00</span> -<span>$60.00</span>
                     </div>
                   </a>
                   <a
@@ -822,10 +665,7 @@ export default function HomePage() {
                       type="button"
                       className="shadow-lg p-3 rounded-full bg-white block hover:bg-slate-200 transition-all"
                     >
-                      <img
-                        src=".//src/assets/ico_heart.png"
-                        className="image size-4 rouded-full"
-                      />
+                      <img src=".//src/assets/ico_heart.png" className="image size-4 rouded-full" />
                     </button>
                   </li>
                   <li className="opacity-0 translate-y-4 duration-200 group-hover:opacity-100 group-hover:translate-y-0 transition-all delay-100">
@@ -858,26 +698,11 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="flex justify-center items-center gap-1 mt-5">
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_active.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
-                  <img
-                    className="size-13 inline-block"
-                    src=".//src/assets/ico_star_gray.png"
-                  />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_active.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
+                  <img className="size-13 inline-block" src=".//src/assets/ico_star_gray.png" />
                 </div>
                 <h3 className="text-15 mt-2">Caravaggio Read Wall Light</h3>
               </a>
@@ -886,10 +711,8 @@ export default function HomePage() {
                 <div className="absolute left-1/2 -translate-x-1/2 group-hover:bottom-0 -bottom-5 transition-all duration-300">
                   <a href="product-detail.html">
                     <div className="flex items-center justify-center font-bold text-15 text-center">
-                      <span className="line-through text-lightGray">
-                        $59.00{' '}
-                      </span>{' '}
-                      -<span className="text-red-600">$60.00</span>
+                      <span className="line-through text-lightGray">$59.00 </span> -
+                      <span className="text-red-600">$60.00</span>
                     </div>
                   </a>
                   <a

@@ -6,11 +6,7 @@ export default function Header() {
       <div className="container flex items-center">
         <h1 className="flex-shrink-0 mr-5">
           <Link to="/" className="block max-w-[130px]">
-            <img
-              className="max-w-full"
-              src="/src/assets/logo.webp"
-              alt="Darion"
-            />
+            <img className="max-w-full" src="/src/assets/logo.webp" alt="Darion" />
           </Link>
         </h1>
         <div className="relative ml-auto lg:mr-20 max-w-[500px] w-full hidden xl:block">
@@ -31,7 +27,7 @@ export default function Header() {
               <Link to="/">Home</Link>
             </li>
             <li className="relative after:absolute after:h-[1.5px] after:bg-black after:left-0 after:bottom-[-2px] after:transition-all after:duration-300 after:w-full after:scale-x-0 hover:after:-scale-x-100">
-              <Link to='/product-list'>Shop</Link>
+              <Link to="/product-list">Shop</Link>
             </li>
             <li className="relative after:absolute after:h-[1.5px] after:bg-black after:left-0 after:bottom-[-2px] after:transition-all after:duration-300 after:w-full after:scale-x-0 hover:after:-scale-x-100">
               <a href="#none">Product</a>

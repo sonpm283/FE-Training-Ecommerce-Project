@@ -1,14 +1,6 @@
 import { Controller } from 'react-hook-form'
 
-const Input = ({
-  name,
-  control,
-  label,
-  type = 'text',
-  placeholder,
-  errors,
-  ...rest
-}) => {
+const Input = ({ name, control, label, type = 'text', placeholder, errors, ...rest }) => {
   return (
     <div className="mb-4">
       <label htmlFor={name} className="block text-sm font-medium text-gray-600">
@@ -33,9 +25,7 @@ const Input = ({
       />
 
       {errors[name] && (
-        <p className="mt-2 inline-block text-xs text-red-500">
-          {errors[name]?.message}
-        </p>
+        <p className="mt-2 inline-block text-xs text-red-500">{errors[name]?.message}</p>
       )}
     </div>
   )

@@ -1,9 +1,8 @@
-import { useSelector } from 'react-redux'
-import { selectCurrentUser } from '@redux/slices/authSlice'
+import { useSelectUser } from '@hooks/useSelectUser'
 import { Navigate, Outlet } from 'react-router-dom'
 
 export default function UnauthorizedLayout() {
-  const userProfile = useSelector(selectCurrentUser)
+  const userProfile = useSelectUser()
 
   if (userProfile?._id) {
     return <Navigate to="/" replace />

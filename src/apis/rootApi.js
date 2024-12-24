@@ -5,7 +5,6 @@ export const rootApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_URL,
     prepareHeaders: (headers, { getState }) => {
-      console.log('rootApi', getState().auth.accessToken)
       const token = getState().auth.accessToken;
   
       if (token) {

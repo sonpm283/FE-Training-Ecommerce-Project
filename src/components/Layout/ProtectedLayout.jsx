@@ -1,35 +1,41 @@
 import { useGetUserProfileQuery } from '@apis/userApi'
-import { saveUserProfile } from '@redux/slices/authSlice'
+import Footer from '@components/Footer/Footer'
+import FullScreenLoading from '@components/FullScreenLoading'
+import Header from '@components/Header'
+import { saveUserProfile, selectAccessToken } from '@redux/slices/authSlice'
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
 
 export default function ProtectedLayout() {
-  const { data, isSuccess, isLoading } = useGetUserProfileQuery()
-
-  console.log('isLoading', isLoading)
-    console.log('isSuccess', isSuccess)
-    console.log('sssssss', data)
-  
+  const accessToken = useSelector(selectAccessToken)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    console.log('useEffect isLoading', isLoading)
-    console.log('useEffect isSuccess', isSuccess)
-    console.log('useEffect sssssss', data)
+  const { data, isLoading, isSuccess } = useGetUserProfileQuery(undefined, {
+    skip: !accessToken,
+  })
 
+  useEffect(() => {
     if (isSuccess) {
-      dispatch(saveUserProfile(data?.data))
+      dispatch(saveUserProfile(data.data))
     }
-  }, [isSuccess, data, dispatch])
+  }, [data, dispatch, isSuccess])
+
+  if (!accessToken) {
+    return <Navigate to="/login" />
+  }
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <FullScreenLoading />
   }
 
-  if (!data?.data?._id) {
-    return <Navigate to="/login" replace />
-  }
-
-  return <Outlet />
+  return (
+    <>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </>
+  )
 }

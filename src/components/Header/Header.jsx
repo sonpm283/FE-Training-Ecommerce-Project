@@ -1,6 +1,10 @@
+import Button from '@components/Button'
+import { useSelectUser } from '@hooks/useSelectUser'
 import { Link } from 'react-router-dom'
 
 export default function Header() {
+  const userProfile = useSelectUser()
+
   return (
     <header className="py-5 lg:py-8 sticky top-0 z-10 bg-white">
       <div className="container flex items-center">
@@ -45,13 +49,16 @@ export default function Header() {
             <img className="size-5" src="/src/assets/ico_search.png" />
           </a>
 
-          <Link to="/login">
-            <img className="size-5" src="/src/assets/ico_user.png" />
-          </Link>
+          {!userProfile.name && (
+            <Link to="/login">
+              <img className="size-5" src="/src/assets/ico_user.png" />
+            </Link>
+          )}
+
           <a href="#none" className="relative">
-            <span className="absolute -top-[8px] -right-[10px] size-[18px] bg-black text-white rounded-full text-xs grid place-items-center">
+            {/* <span className="absolute -top-[8px] -right-[10px] size-[18px] bg-black text-white rounded-full text-xs grid place-items-center">
               10
-            </span>
+            </span> */}
             <img className="size-5" src="/src/assets/ico_heart.png" />
           </a>
           <a href="shopping-cart.html" className="relative">
@@ -60,6 +67,12 @@ export default function Header() {
             </span>
             <img className="size-5" src="/src/assets/ico_bag.png" />
           </a>
+
+          {userProfile.name && (
+            <Button className="size-7 rounded-full bg-lightGray text-white grid place-items-center">
+              {userProfile.name[0].toUpperCase()}
+            </Button>
+          )}
         </div>
       </div>
     </header>

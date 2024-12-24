@@ -6,26 +6,9 @@ import Login from '@pages/Auth/Login'
 import Register from '@pages/Auth/Register'
 import HomePage from '@pages/HomePage'
 import ProductList from '@pages/ProductList'
-import { selectCurrentUser } from '@redux/slices/authSlice'
-import { useSelector } from 'react-redux'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-// const ProtectedRoute = ({ user }) => {
-//   if (!user) return <Navigate to="/login" replace={true} />
-//   return <Outlet />
-// }
-
-// const UnauthorizedRoute = ({ user }) => {
-
-//   if (user) return <Navigate to="/" replace={true} />
-//   return <Outlet />
-// }
-
 export default function App() {
-  const currentUser = useSelector(selectCurrentUser)
-
-  console.log(currentUser)
-
   const router = createBrowserRouter([
     {
       element: <MainLayout />,

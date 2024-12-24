@@ -11,8 +11,6 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      console.log(action.payload.token.accessToken);
-      
       state.accessToken = action.payload.token.accessToken
       state.refreshToken = action.payload.token.refreshToken
     },
@@ -22,8 +20,7 @@ export const authSlice = createSlice({
   },
 })
 
-
-export const selectToken = (state) => {
+export const selectAccessToken = (state) => {
   return state.auth.accessToken
 }
 

@@ -3,12 +3,7 @@ import rootApi from './rootApi'
 export const userApi = rootApi.injectEndpoints({
   endpoints: (builder) => ({
     getUserProfile: builder.query({
-      query: () => {
-        return {
-          url: `/users/get-profile`,
-          method: 'GET',
-        }
-      },
+      query: () => '/users/get-profile',
     }),
     updateUserProfile: builder.mutation({
       query: ({ userId, name, email }) => ({

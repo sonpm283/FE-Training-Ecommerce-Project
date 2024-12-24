@@ -1,4 +1,3 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { ToastContainer } from 'react-toastify'
@@ -7,14 +6,11 @@ import { persistor, store } from '@redux/store'
 import { PersistGate } from 'redux-persist/integration/react'
 import App from './App'
 
-
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={<p>Loading...</p>} persistor={persistor}>
-        <App />
-        <ToastContainer position="bottom-right" theme="colored" />
-      </PersistGate>
-    </Provider>
-  </StrictMode>
+  <Provider store={store}>
+    <PersistGate loading={<p>Loading...</p>} persistor={persistor}>
+      <App />
+      <ToastContainer position="bottom-right" theme="colored" />
+    </PersistGate>
+  </Provider>
 )

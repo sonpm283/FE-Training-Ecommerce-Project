@@ -4,11 +4,12 @@ import { rootApi } from '@apis/rootApi'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import persistStore from 'redux-persist/es/persistStore'
+import { logoutMiddleware } from './middlewares'
 
 const rootPersistConfig = {
   key: 'root',
   storage: storage,
-  whitelist: ['auth'], 
+  whitelist: ['auth'],
 }
 
 const reducers = combineReducers({
@@ -21,8 +22,7 @@ const persistedReducers = persistReducer(rootPersistConfig, reducers)
 export const store = configureStore({
   reducer: persistedReducers,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }).concat(rootApi.middleware),
+    getDefaultMiddleware({ serializableCheck: false }).concat(logoutMiddleware, rootApi.middleware),
 })
 
-
-export const persistor = persistStore(store);
+export const persistor = persistStore(store)

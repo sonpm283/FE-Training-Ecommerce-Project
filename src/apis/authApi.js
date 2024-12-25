@@ -16,6 +16,15 @@ export const authApi = rootApi.injectEndpoints({
         body: { name, email, password },
       }),
     }),
+    refreshToken: builder.mutation({
+      query: (refreshToken) => {
+        return {
+          url: 'users/refresh-token',
+          body: { refreshToken },
+          method: 'POST',
+        }
+      },
+    }),
   }),
   // sau này sẽ có nhiều file api như thế này  overrideExisting: false để khi injectEndpoints một api mới (ví dụng productsApi thì sẽ không bị đè authApi)
   overrideExisting: false,

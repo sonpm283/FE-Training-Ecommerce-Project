@@ -27,12 +27,11 @@ export function useLoginHandler() {
 
   const onSubmit = async (formData) => {
     try {
-      // sử dụng unwrap để đợi 1 promise được quản lý bởi RTK, dễ dàng xử lý bằng try/catch một cách tự nhiên(khi resolve sẽ xử lý ở try, khi reject xử xử lý ở catch)
       const response = await loginMutation(formData).unwrap()
-      dispatch(login(response))
+
+      dispatch(login(response?.token))
       navigate('/')
       toast.success(response.message)
-      
     } catch (error) {
       const errorMessage = error?.data?.message || 'Login failed. Please try again!'
       toast.error(errorMessage)

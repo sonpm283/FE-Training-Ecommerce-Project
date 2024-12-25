@@ -2,11 +2,16 @@ import AuthLayout from '@components/Layout/AuthLayout'
 import MainLayout from '@components/Layout/MainLayout'
 import ProtectedLayout from '@components/Layout/ProtectedLayout'
 import UnauthorizedLayout from '@components/Layout/UnauthorizedLayout'
-import Login from '@pages/Auth/Login'
-import Register from '@pages/Auth/Register'
-import HomePage from '@pages/HomePage'
-import ProductList from '@pages/ProductList'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+
+const ProductList = lazy(() => import('@pages/ProductList'))
+const HomePage = lazy(() => import('@pages/HomePage'))
+const Register = lazy(() => import('@pages/Auth/Register'))
+const Login = lazy(() => import('@pages/Auth/Login'))
+const Profile = lazy(() => import('@pages/User/Profile'))
+const ChangePassword = lazy(() => import('@pages/User/ChangePassword'))
+const OrderHistory = lazy(() => import('@pages/User/OrderHistory'))
 
 export default function App() {
   const router = createBrowserRouter([
@@ -14,15 +19,27 @@ export default function App() {
       element: <MainLayout />,
       children: [
         {
+          path: '/',
+          element: <HomePage />,
+        },
+        {
+          path: '/product-list',
+          element: <ProductList />,
+        },
+        {
           element: <ProtectedLayout />,
           children: [
             {
-              path: '/',
-              element: <HomePage />,
+              path: '/user/profile',
+              element: <Profile />,
             },
             {
-              path: '/product-list',
-              element: <ProductList />,
+              path: '/user/change-password',
+              element: <ChangePassword />,
+            },
+            {
+              path: '/user/order-history',
+              element: <OrderHistory />,
             },
           ],
         },
@@ -36,12 +53,19 @@ export default function App() {
           children: [
             {
               path: '/login',
-              element: <Login />,
+              element: (
+                <Suspense fallback={<div>Loading Login...</div>}>
+                  <Login />
+                </Suspense>
+              ),
             },
-
             {
               path: '/register',
-              element: <Register />,
+              element: (
+                <Suspense fallback={<div>Loading Register...</div>}>
+                  <Register />
+                </Suspense>
+              ),
             },
           ],
         },
@@ -49,5 +73,6 @@ export default function App() {
     },
   ])
 
+  // Trả về RouterProvider
   return <RouterProvider router={router} />
 }

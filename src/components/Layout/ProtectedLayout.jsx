@@ -1,7 +1,5 @@
 import { useGetUserProfileQuery } from '@apis/userApi'
-import Footer from '@components/Footer/Footer'
 import FullScreenLoading from '@components/FullScreenLoading'
-import Header from '@components/Header'
 import { saveUserProfile, selectAccessToken } from '@redux/slices/authSlice'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,21 +19,13 @@ export default function ProtectedLayout() {
     }
   }, [data, dispatch, isSuccess])
 
-  if (!accessToken) {
-    return <Navigate to="/login" />
-  }
-
   if (isLoading) {
     return <FullScreenLoading />
   }
 
-  return (
-    <>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
-    </>
-  )
+  if (!accessToken) {
+    return <Navigate to="/login" replace />
+  }
+
+  return <Outlet />
 }

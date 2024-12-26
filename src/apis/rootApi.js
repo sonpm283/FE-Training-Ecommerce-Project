@@ -1,34 +1,13 @@
-import { login, logout } from '@redux/slices/authSlice'
+import { logout, setUserData } from '@redux/slices/authSlice'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const API_URL = import.meta.env.VITE_API_URL
 
-const handleRefreshToken = async (refreshToken, baseQuery, args, api, extraOptions) => {
-  const refreshResult = await baseQuery(
-    {
-      url: '/users/refresh-token',
-      body: { refreshToken },
-      method: 'POST',
-    },
-    api,
-    extraOptions
-  )
-
-  const newAccessToken = refreshResult?.data?.data?.accessToken
-
-  if (!newAccessToken) {
-    api.dispatch(logout())
-    window.location.href = '/login'
-    return null
-  }
-
-  api.dispatch(login({ accessToken: newAccessToken, refreshToken }))
-  return await baseQuery(args, api, extraOptions)
-}
-
+// Configure base query with authorization header
 const baseQuery = fetchBaseQuery({
   baseUrl: API_URL,
   prepareHeaders: (headers, { getState }) => {
+    // Get access token from redux store
     const accessToken = getState().auth.accessToken
     if (accessToken) {
       headers.set('Authorization', `Bearer ${accessToken}`)
@@ -37,34 +16,56 @@ const baseQuery = fetchBaseQuery({
   },
 })
 
-const authenticatedBaseQuery = async (args, api, extraOptions) => {
+// Custom base query with refresh token handling
+const baseQueryWithReauth = async (args, api, extraOptions) => {
+  // Make initial request with current access token
   let result = await baseQuery(args, api, extraOptions)
 
+  // Check if token has expired (401 + specific message)
   const isTokenExpired =
     result?.error?.status === 401 && result?.error?.data?.message === 'Token has expired.'
 
   if (isTokenExpired) {
+    // Get refresh token from redux store
     const refreshToken = api.getState().auth.refreshToken
+
     if (refreshToken) {
-      const refreshResult = await handleRefreshToken(
-        refreshToken,
-        baseQuery,
-        args,
+      // Call refresh token API
+      const refreshResult = await baseQuery(
+        {
+          url: '/users/refresh-token',
+          method: 'POST',
+          body: { refreshToken },
+        },
         api,
         extraOptions
       )
-      if (refreshResult) {
-        result = refreshResult
+
+      // Get User from response
+      const newUserData = refreshResult?.data?.data
+
+      // Handle refresh token failure
+      if (!newUserData.accessToken) {
+        api.dispatch(logout())
+        window.location.href = '/login'
+        return result
       }
+
+      // Store new user in redux store
+      api.dispatch(setUserData(newUserData))
+
+      // Retry original request with new access token
+      result = await baseQuery(args, api, extraOptions)
     }
   }
 
   return result
 }
 
+// Initialize root API with custom base query
 export const rootApi = createApi({
   reducerPath: 'api',
-  baseQuery: authenticatedBaseQuery,
+  baseQuery: baseQueryWithReauth,
   endpoints: () => ({}),
 })
 

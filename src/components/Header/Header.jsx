@@ -3,7 +3,7 @@ import { useSelectUser } from '@hooks/useSelectUser'
 import { Link } from 'react-router-dom'
 
 export default function Header() {
-  const userProfile = useSelectUser()
+  const currentUser = useSelectUser()
 
   return (
     <header className="py-5 lg:py-8 sticky top-0 z-10 bg-white">
@@ -49,7 +49,7 @@ export default function Header() {
             <img className="size-5" src="/src/assets/ico_search.png" />
           </a>
 
-          {!userProfile.name && (
+          {!currentUser?.user.name && (
             <Link to="/login">
               <img className="size-5" src="/src/assets/ico_user.png" />
             </Link>
@@ -68,9 +68,9 @@ export default function Header() {
             <img className="size-5" src="/src/assets/ico_bag.png" />
           </a>
 
-          {userProfile.name && (
+          {currentUser?.user.name && (
             <Button className="size-7 rounded-full bg-lightGray text-white grid place-items-center">
-              {userProfile.name[0].toUpperCase()}
+              {currentUser?.user.name[0].toUpperCase()}
             </Button>
           )}
         </div>

@@ -1,9 +1,9 @@
 import AuthLayout from '@components/Layout/AuthLayout'
 import MainLayout from '@components/Layout/MainLayout'
-import ProtectedLayout from '@components/Layout/ProtectedLayout'
-import UnauthorizedLayout from '@components/Layout/UnauthorizedLayout'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { lazy, Suspense } from 'react'
+import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom'
+import { lazy } from 'react'
+import { useSelector } from 'react-redux'
+import { selectCurrentUser } from '@redux/slices/authSlice'
 
 const ProductList = lazy(() => import('@pages/ProductList'))
 const HomePage = lazy(() => import('@pages/HomePage'))
@@ -13,21 +13,27 @@ const Profile = lazy(() => import('@pages/User/Profile'))
 const ChangePassword = lazy(() => import('@pages/User/ChangePassword'))
 const OrderHistory = lazy(() => import('@pages/User/OrderHistory'))
 
+const ProtectedRoute = ({ user }) => {
+  if (!user) return <Navigate to="/login" replace={true} />
+
+  return <Outlet />
+}
+
+const UnauthoziedRoute = ({ user }) => {
+  if (user) return <Navigate to="/" replace={true} />
+
+  return <Outlet />
+}
+
 export default function App() {
+  const currentUser = useSelector(selectCurrentUser)
+
   const router = createBrowserRouter([
     {
       element: <MainLayout />,
       children: [
         {
-          path: '/',
-          element: <HomePage />,
-        },
-        {
-          path: '/product-list',
-          element: <ProductList />,
-        },
-        {
-          element: <ProtectedLayout />,
+          element: <ProtectedRoute user={currentUser} />,
           children: [
             {
               path: '/user/profile',
@@ -41,6 +47,14 @@ export default function App() {
               path: '/user/order-history',
               element: <OrderHistory />,
             },
+            {
+              path: '/',
+              element: <HomePage />,
+            },
+            {
+              path: '/product-list',
+              element: <ProductList />,
+            },
           ],
         },
       ],
@@ -49,23 +63,15 @@ export default function App() {
       element: <AuthLayout />,
       children: [
         {
-          element: <UnauthorizedLayout />,
+          element: <UnauthoziedRoute user={currentUser} />,
           children: [
             {
               path: '/login',
-              element: (
-                <Suspense fallback={<div>Loading Login...</div>}>
-                  <Login />
-                </Suspense>
-              ),
+              element: <Login />,
             },
             {
               path: '/register',
-              element: (
-                <Suspense fallback={<div>Loading Register...</div>}>
-                  <Register />
-                </Suspense>
-              ),
+              element: <Register />,
             },
           ],
         },

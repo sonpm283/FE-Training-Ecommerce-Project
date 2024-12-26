@@ -1,6 +1,6 @@
 import { useLoginMutation } from '@apis/authApi'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { login } from '@redux/slices/authSlice'
+import { setUserData } from '@redux/slices/authSlice'
 import { loginSchema } from '@schemas/authSchemas'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
@@ -29,7 +29,7 @@ export function useLoginHandler() {
     try {
       const response = await loginMutation(formData).unwrap()
 
-      dispatch(login(response?.token))
+      dispatch(setUserData(response?.data))
       navigate('/')
       toast.success(response.message)
     } catch (error) {

@@ -1,6 +1,6 @@
-import { selectCurrentUser } from '@redux/slices/authSlice'
+import { selectUserProfile } from '@redux/slices/authSlice'
 import { useSelector } from 'react-redux'
 
 export const useSelectUser = () => {
-  return useSelector(selectCurrentUser)
+  return useSelector(selectUserProfile)
 }

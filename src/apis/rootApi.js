@@ -42,17 +42,17 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       )
 
       // Get User from response
-      const newUserData = refreshResult?.data?.data
+      const newAccessToken = refreshResult?.data?.data.accessToken
 
       // Handle refresh token failure
-      if (!newUserData.accessToken) {
+      if (!newAccessToken) {
         api.dispatch(logout())
         window.location.href = '/login'
         return result
       }
 
       // Store new user in redux store
-      api.dispatch(setUserData(newUserData))
+      api.dispatch(setUserData({ accessToken: newAccessToken, refreshToken }))
 
       // Retry original request with new access token
       result = await baseQuery(args, api, extraOptions)

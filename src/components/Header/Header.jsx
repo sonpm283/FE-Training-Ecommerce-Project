@@ -49,7 +49,7 @@ export default function Header() {
             <img className="size-5" src="/src/assets/ico_search.png" />
           </a>
 
-          {!currentUser?.user.name && (
+          {!currentUser?.name && (
             <Link to="/login">
               <img className="size-5" src="/src/assets/ico_user.png" />
             </Link>
@@ -68,9 +68,9 @@ export default function Header() {
             <img className="size-5" src="/src/assets/ico_bag.png" />
           </a>
 
-          {currentUser?.user.name && (
+          {currentUser?.name && (
             <Button className="size-7 rounded-full bg-lightGray text-white grid place-items-center">
-              {currentUser?.user.name[0].toUpperCase()}
+              {currentUser?.name[0].toUpperCase()}
             </Button>
           )}
         </div>

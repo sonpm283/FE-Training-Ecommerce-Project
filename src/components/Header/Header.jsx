@@ -1,4 +1,4 @@
-import Button from '@components/Button'
+import MenuProfile from '@components/MenuProfile'
 import { useSelectUser } from '@hooks/useSelectUser'
 import { Link } from 'react-router-dom'
 
@@ -68,11 +68,7 @@ export default function Header() {
             <img className="size-5" src="/src/assets/ico_bag.png" />
           </a>
 
-          {currentUser?.name && (
-            <Button className="size-7 rounded-full bg-lightGray text-white grid place-items-center">
-              {currentUser?.name[0].toUpperCase()}
-            </Button>
-          )}
+          {currentUser?.name && <MenuProfile />}
         </div>
       </div>
     </header>

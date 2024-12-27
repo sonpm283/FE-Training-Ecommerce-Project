@@ -1,10 +1,9 @@
 import AuthLayout from '@components/Layout/AuthLayout'
 import MainLayout from '@components/Layout/MainLayout'
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom'
-import { lazy, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectUserProfile, setUserProfile } from '@redux/slices/authSlice'
-import { useGetUserProfileQuery } from '@apis/userApi'
+import { lazy } from 'react'
+import { useAuth } from '@hooks/useAuth'
+import { useSelectUser } from '@hooks/useSelectUser'
 
 const ProductList = lazy(() => import('@pages/ProductList'))
 const HomePage = lazy(() => import('@pages/HomePage'))
@@ -13,32 +12,27 @@ const Login = lazy(() => import('@pages/Auth/Login'))
 const Profile = lazy(() => import('@pages/User/Profile'))
 const ChangePassword = lazy(() => import('@pages/User/ChangePassword'))
 const OrderHistory = lazy(() => import('@pages/User/OrderHistory'))
+const NotFound = lazy(() => import('@pages/404'))
 
 const ProtectedRoute = () => {
-  const accessToken = useSelector(state => state.auth.accessToken)
-  const dispatch = useDispatch()
-
-  const { data, isSuccess, isLoading } = useGetUserProfileQuery(undefined, {
-    skip: !accessToken
-  })
-
-  useEffect(() => {
-    if (isSuccess) {
-      dispatch(setUserProfile(data?.data))
-    }
-  }, [data, isSuccess])
+  const { isAuthenticated, isLoading } = useAuth()
 
   if (isLoading) {
     return <p>Loading...</p>
   }
 
-  if (!accessToken) return <Navigate to="/login" replace={true} />
+  if (!isAuthenticated) return <Navigate to="/login" replace={true} />
 
   return <Outlet />
 }
 
-const UnauthoziedRoute = () => {
-  const currentUser = useSelector(selectUserProfile)
+const PublicRoute = () => {
+  useAuth()
+  return <Outlet />
+}
+
+const UnauthorizedRoute = () => {
+  const currentUser = useSelectUser()
 
   if (currentUser?._id) return <Navigate to="/" replace={true} />
 
@@ -50,6 +44,23 @@ export default function App() {
     {
       element: <MainLayout />,
       children: [
+        {
+          element: <PublicRoute />,
+          children: [
+            {
+              path: '/',
+              element: <HomePage />,
+            },
+            {
+              path: '/product-list',
+              element: <ProductList />,
+            },
+            {
+              path: '*',
+              element: <NotFound />,
+            },
+          ],
+        },
         {
           element: <ProtectedRoute />,
           children: [
@@ -65,14 +76,6 @@ export default function App() {
               path: '/user/order-history',
               element: <OrderHistory />,
             },
-            {
-              path: '/',
-              element: <HomePage />,
-            },
-            {
-              path: '/product-list',
-              element: <ProductList />,
-            },
           ],
         },
       ],
@@ -81,7 +84,7 @@ export default function App() {
       element: <AuthLayout />,
       children: [
         {
-          element: <UnauthoziedRoute />,
+          element: <UnauthorizedRoute />,
           children: [
             {
               path: '/login',
@@ -97,6 +100,5 @@ export default function App() {
     },
   ])
 
-  // Trả về RouterProvider
   return <RouterProvider router={router} />
 }

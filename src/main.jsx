@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate loading={<p>Loading...</p>} persistor={persistor}>
       <App />
-      <ToastContainer position="bottom-right" theme="colored" />
+      <ToastContainer position="bottom-right" theme="light" />
     </PersistGate>
   </Provider>
 )

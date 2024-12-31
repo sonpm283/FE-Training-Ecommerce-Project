@@ -40,11 +40,11 @@ export default function MenuProfile() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 focus:outline-none"
       >
-        <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+        <div className="w-9 h-9 bg-blue-400 rounded-full overflow-hidden flex items-center justify-center">
           {userProfile?.avatar ? (
             <img src={userProfile.avatar} alt="Avatar" className="w-full h-full object-cover" />
           ) : (
-            <p className="size-7 rounded-full bg-lightGray text-white grid place-items-center">
+            <p className="text-white text-lg font-medium grid place-items-center">
               {userProfile?.name[0].toUpperCase()}
             </p>
           )}
@@ -52,9 +52,9 @@ export default function MenuProfile() {
       </Button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+        <div className="absolute right-0 mt-2 w-48 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5">
           <div className="py-1">
-            <div className="px-4 py-2 border-b">
+            <div className="px-4 py-2 border-b border-gray">
               <p className="text-sm font-medium text-gray-900">{userProfile?.name}</p>
               <p className="text-sm text-gray-500">{userProfile?.email}</p>
             </div>

@@ -52,7 +52,7 @@ export default function App() {
               element: <HomePage />,
             },
             {
-              path: '/product-list',
+              path: '/products',
               element: <ProductList />,
             },
             {

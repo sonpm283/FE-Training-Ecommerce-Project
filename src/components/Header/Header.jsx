@@ -1,3 +1,4 @@
+import ROUTES from '@/constants/route'
 import MenuProfile from '@components/MenuProfile'
 import { useSelectUser } from '@hooks/useSelectUser'
 import { Link } from 'react-router-dom'
@@ -50,7 +51,7 @@ export default function Header() {
           </a>
 
           {!currentUser?.name && (
-            <Link to="/login">
+            <Link to={ROUTES.LOGIN}>
               <img className="size-5" src="/src/assets/ico_user.png" />
             </Link>
           )}

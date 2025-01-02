@@ -1,27 +1,28 @@
 import { useGetCategoryListQuery } from '@/apis/categoryApi'
 import { useGetProductListQuery } from '@/apis/productsApi'
-import Product from '@/components/Product'
 import { Link } from 'react-router-dom'
 import ProductFilterSidebar from './components/ProductFilterSidebar'
 import useQueryConfig from '@/hooks/useQueryConfig'
+import { Pagination, PaginationSkeleton, Product, ProductSkeleton } from '@/components'
 
 export default function ProductList() {
   const queryConfig = useQueryConfig()
-  const { data: productsData } = useGetProductListQuery(queryConfig)
+  const { data: productsData, isFetching } = useGetProductListQuery(queryConfig)
   const { data: categoriesData } = useGetCategoryListQuery()
+  const SKELETON_COUNT = 6
 
   return (
-    <main>
+    <>
       <section className="relative">
-        <img src="/src/assets/img_product_list_banner.webp" />
+        <img className="w-full" src="/src/assets/img_product_list_banner.webp" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
           <h2 className="text-4xl font-semibold">Shop</h2>
           <ul className="flex items-center gap-3 justify-center mt-2">
             <li>
-              <span>Shop</span>
+              <Link to="/">Home / </Link>
             </li>
             <li>
-              <Link to="/">Home / </Link>
+              <span>Shop</span>
             </li>
           </ul>
         </div>
@@ -46,57 +47,23 @@ export default function ProductList() {
                 </select>
               </div>
               <ul className="lg:grid grid-cols-3 gap-5 mt-9 space-y-3 lg:space-y-0">
-                {(productsData?.data || []).map((product) => {
-                  return <Product key={product._id} product={product} />
-                })}
+                {isFetching
+                  ? [...Array(SKELETON_COUNT)].map((_, index) => <ProductSkeleton key={index} />)
+                  : (productsData?.data || []).map((product) => (
+                      <Product product={product} key={product._id} />
+                    ))}
+
+                {productsData?.data?.length === 0 && (
+                  <div className="border-t-[2px] col-span-3 text-center py-2 min-h-[400px]">
+                    <p className="mt-2 text-lg text-gray-600">No Result</p>
+                  </div>
+                )}
               </ul>
-              <div className="mt-10">
-                <ul className="flex items-center justify-center gap-2">
-                  <li>
-                    <button className="grid place-items-center size-10 rounded-full border border-lightGray">
-                      <img className="size-4" src="/src/assets/ico_chevron_left.png" />
-                    </button>
-                  </li>
-                  <li>
-                    <a className="grid place-items-center size-10 rounded-full border border-lightGray hover:text-white hover:bg-black transition-all bg-black text-white">
-                      1
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="grid place-items-center size-10 rounded-full border border-lightGray hover:text-white hover:bg-black transition-all"
-                      href="#none"
-                    >
-                      2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="grid place-items-center size-10 rounded-full border border-lightGray hover:text-white hover:bg-black transition-all"
-                      href="#none"
-                    >
-                      3
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="grid place-items-center size-10 rounded-full border border-lightGray hover:text-white hover:bg-black transition-all"
-                      href="#none"
-                    >
-                      4
-                    </a>
-                  </li>
-                  <li>
-                    <button className="grid place-items-center size-10 rounded-full border border-lightGray">
-                      <img className="size-4" src="/src/assets/ico_chevron_right.png" />
-                    </button>
-                  </li>
-                </ul>
-              </div>
+              <div className="mt-14">{isFetching ? <PaginationSkeleton /> : <Pagination />}</div>
             </div>
           </div>
         </div>
       </section>
-    </main>
+    </>
   )
 }

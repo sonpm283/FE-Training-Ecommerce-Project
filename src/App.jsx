@@ -1,5 +1,6 @@
 import AuthLayout from '@components/Layout/AuthLayout'
 import MainLayout from '@components/Layout/MainLayout'
+import ROUTES from './constants/route'
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom'
 import { lazy } from 'react'
 import { useAuth } from '@hooks/useAuth'
@@ -48,11 +49,11 @@ export default function App() {
           element: <PublicRoute />,
           children: [
             {
-              path: '/',
+              path: ROUTES.HOME,
               element: <HomePage />,
             },
             {
-              path: '/products',
+              path: ROUTES.PRODUCT_LIST,
               element: <ProductList />,
             },
             {
@@ -65,15 +66,15 @@ export default function App() {
           element: <ProtectedRoute />,
           children: [
             {
-              path: '/user/profile',
+              path: ROUTES.PROFILE,
               element: <Profile />,
             },
             {
-              path: '/user/change-password',
+              path: ROUTES.USER_CHANGE_PASSWORD,
               element: <ChangePassword />,
             },
             {
-              path: '/user/order-history',
+              path: ROUTES.ORDER_HISTORY,
               element: <OrderHistory />,
             },
           ],
@@ -87,11 +88,11 @@ export default function App() {
           element: <UnauthorizedRoute />,
           children: [
             {
-              path: '/login',
+              path: ROUTES.LOGIN,
               element: <Login />,
             },
             {
-              path: '/register',
+              path: ROUTES.REGISTER,
               element: <Register />,
             },
           ],

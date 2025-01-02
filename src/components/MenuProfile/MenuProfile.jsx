@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { logout } from '@redux/slices/authSlice'
 import Button from '@components/Button'
 import { useSelectUser } from '@hooks/useSelectUser'
+import ROUTES from '@/constants/route'
 
 export default function MenuProfile() {
   const [isOpen, setIsOpen] = useState(false)
@@ -24,13 +25,13 @@ export default function MenuProfile() {
   }, [])
 
   const menuItems = [
-    { icon: 'User', label: 'Thông tin cá nhân', action: () => navigate('/user/profile') },
+    { icon: 'User', label: 'Thông tin cá nhân', action: () => navigate(ROUTES.PROFILE) },
     {
       icon: 'ShoppingBag',
       label: 'Lịch sử đơn hàng',
-      action: () => navigate('/user/order-history'),
+      action: () => navigate(ROUTES.ORDER_HISTORY),
     },
-    { icon: 'Key', label: 'Đổi mật khẩu', action: () => navigate('/user/change-password') },
+    { icon: 'Key', label: 'Đổi mật khẩu', action: () => navigate(ROUTES.USER_CHANGE_PASSWORD) },
     { icon: 'LogOut', label: 'Đăng xuất', action: () => dispatch(logout()) },
   ]
 
@@ -40,7 +41,7 @@ export default function MenuProfile() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 focus:outline-none"
       >
-        <div className="w-9 h-9 bg-blue-400 rounded-full overflow-hidden flex items-center justify-center">
+        <div className="w-9 h-9 bg-lightGray rounded-full overflow-hidden flex items-center justify-center">
           {userProfile?.avatar ? (
             <img src={userProfile.avatar} alt="Avatar" className="w-full h-full object-cover" />
           ) : (

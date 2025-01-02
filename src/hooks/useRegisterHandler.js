@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { registerSchema } from '@schemas/authSchemas'
 import { toast } from 'react-toastify'
 import { useRegisterMutation } from '@apis/authApi'
+import ROUTES from '@/constants/route'
 
 const useRegisterHandler = () => {
   const navigate = useNavigate()
@@ -28,7 +29,7 @@ const useRegisterHandler = () => {
       const result = await registerMutation(formData).unwrap()
 
       toast.success(result.message)
-      navigate('/login')
+      navigate(ROUTES.LOGIN)
     } catch (error) {
       const errorMessage = error?.data?.message || 'Register failed. Please try again!'
       toast.error(errorMessage)

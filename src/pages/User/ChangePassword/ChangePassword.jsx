@@ -1,7 +1,7 @@
 export default function ChangePassword() {
   return (
     <div className="container">
-      <h1>ChangePassword</h1>
+      <h1>Change Password</h1>
     </div>
   )
 }

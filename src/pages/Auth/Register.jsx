@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Input from '@components/Input'
 import Button from '@components/Button'
 import useRegisterHandler from '@hooks/useRegisterHandler'
+import ROUTES from '@/constants/route'
 
 export default function Register() {
   const { handleSubmit, onSubmit, control, errors, isLoading } = useRegisterHandler()
@@ -51,7 +52,7 @@ export default function Register() {
       <div className="mt-4 text-center">
         <p className="text-sm text-gray-600">
           Đã có tài khoản?{' '}
-          <Link to="/login" className="text-blue-500 hover:underline">
+          <Link to={ROUTES.LOGIN} className="text-blue-500 hover:underline">
             Đăng nhập ngay
           </Link>
         </p>

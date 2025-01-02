@@ -1,3 +1,4 @@
+import ROUTES from '@/constants/route'
 import { logout, setUserData } from '@redux/slices/authSlice'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
@@ -50,7 +51,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       // Handle refresh token failure
       if (!newAccessToken) {
         api.dispatch(logout())
-        window.location.href = '/login'
+        window.location.href = ROUTES.LOGIN
         return result
       }
 

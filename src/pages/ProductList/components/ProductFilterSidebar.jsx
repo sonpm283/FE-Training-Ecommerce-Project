@@ -1,31 +1,31 @@
 import { PriceRangeSlider } from '@/components'
-import Button from '@/components/Button'
 import ROUTES from '@/constants/route'
-import { useState } from 'react'
+import { useCallback } from 'react'
 import { createSearchParams, Link, useNavigate } from 'react-router-dom'
+import { useDebounce } from '@/hooks/useDebounce'
 
 export default function ProductFilterSidebar({ queryConfig, categories }) {
   const navigate = useNavigate()
-  const { category: categoryName, minPrice, maxPrice } = queryConfig
+  const { category: categoryName } = queryConfig
 
-  const [rangeValues, setRangeValues] = useState({
-    minPrice: Number(minPrice) || 0,
-    maxPrice: Number(maxPrice) || 100,
-  })
+  const handleNavigate = useCallback(
+    (values) => {
+      navigate({
+        pathname: ROUTES.PRODUCT_LIST,
+        search: createSearchParams({
+          ...queryConfig,
+          minPrice: values.minPrice.toString(),
+          maxPrice: values.maxPrice.toString(),
+        }).toString(),
+      })
+    },
+    [navigate, queryConfig]
+  )
 
-  const handleApplyPrice = () => {
-    navigate({
-      pathname: ROUTES.PRODUCT_LIST,
-      search: createSearchParams({
-        ...queryConfig,
-        minPrice: rangeValues.minPrice.toString(),
-        maxPrice: rangeValues.maxPrice.toString(),
-      }).toString(),
-    })
-  }
-
+  const debouncedNavigate = useDebounce(handleNavigate, 500)
+  
   const handleRangeChange = (values) => {
-    setRangeValues(values)
+    debouncedNavigate(values)
   }
 
   return (
@@ -59,14 +59,7 @@ export default function ProductFilterSidebar({ queryConfig, categories }) {
       </ul>
       <div className="mt-5">
         <h2 className="text-lg font-semibold">Price</h2>
-        <PriceRangeSlider min={20} max={250} onChange={handleRangeChange} />
-
-        <Button
-          onClick={handleApplyPrice}
-          className="mt-3 w-full bg-black text-xs text-white py-2 px-4 rounded hover:bg-white border hover:border hover:text-black transition-colors"
-        >
-          Apply Price Filter
-        </Button>
+        <PriceRangeSlider min={20} max={250} handleRangeChange={handleRangeChange} />
       </div>
       <div className="mt-5">
         <h2 className="text-lg font-semibold">Availability</h2>

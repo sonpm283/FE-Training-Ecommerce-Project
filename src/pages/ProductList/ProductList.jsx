@@ -54,7 +54,7 @@ export default function ProductList() {
                     ))}
 
                 {productsData?.data?.length === 0 && (
-                  <div className="border-t-[2px] col-span-3 text-center py-2 min-h-[400px]">
+                  <div className="border-t-[2px] border-t-midGray col-span-3 text-center py-5 min-h-[400px]">
                     <p className="mt-2 text-lg text-gray-600">No Result</p>
                   </div>
                 )}

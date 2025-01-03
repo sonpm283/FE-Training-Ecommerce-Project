@@ -4,7 +4,7 @@ const PriceRangeSlider = ({
   min,
   max,
   trackColor = '#cecece',
-  onChange,
+  handleRangeChange,
   rangeColor = '#000',
   width = '200px',
   currencyText = '$',
@@ -45,11 +45,11 @@ const PriceRangeSlider = ({
   // Get min and max values when their state changes
   useEffect(() => {
     if (minVal != minValRef.current || maxVal != maxValRef.current) {
-      onChange({ minPrice: minVal, maxPrice: maxVal })
+      handleRangeChange({ minPrice: minVal, maxPrice: maxVal })
       minValRef.current = minVal
       maxValRef.current = maxVal
     }
-  }, [minVal, maxVal, onChange])
+  }, [minVal, maxVal, handleRangeChange])
 
   return (
     <div className="w-full flex items-start justify-center flex-col mt-5">

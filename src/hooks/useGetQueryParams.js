@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { useSearchParams } from 'react-router-dom'
 
-export default function useQueryConfig() {
+export default function useGetQueryParams() {
   const [searchParams] = useSearchParams()
   const queryParams = Object.fromEntries([...searchParams])
 
-  const queryConfig = {
+  const queries = {
     page: queryParams.page || '1',
     limit: queryParams.limit || '12',
     search: queryParams.search,
@@ -15,9 +15,5 @@ export default function useQueryConfig() {
   }
 
   // remove undefined value
-  const filteredQueryConfig = Object.fromEntries(
-    Object.entries(queryConfig).filter(([_, value]) => value !== undefined)
-  )
-
-  return filteredQueryConfig
+  return Object.fromEntries(Object.entries(queries).filter(([_, value]) => value !== undefined))
 }

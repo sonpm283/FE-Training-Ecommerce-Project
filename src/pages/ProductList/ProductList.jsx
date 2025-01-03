@@ -2,14 +2,25 @@ import { useGetCategoryListQuery } from '@/apis/categoryApi'
 import { useGetProductListQuery } from '@/apis/productsApi'
 import { Link } from 'react-router-dom'
 import ProductFilterSidebar from './components/ProductFilterSidebar'
-import useQueryConfig from '@/hooks/useQueryConfig'
 import { Pagination, PaginationSkeleton, Product, ProductSkeleton } from '@/components'
+import ProductListControl from './components/ProductListControl'
+// import useGetQueryParams from '@/hooks/useGetQueryParams'
+import { useDispatch } from 'react-redux'
+import { setFilter } from '@/redux/slices/productSlide'
+import { useQueryParams } from '@/hooks/useQueryParams'
 
 export default function ProductList() {
-  const queryConfig = useQueryConfig()
-  const { data: productsData, isFetching } = useGetProductListQuery(queryConfig)
+  // const queryParams = useGetQueryParams()
+  const { filteredParams } = useQueryParams() 
+  const dispatch = useDispatch()
+
+  const { data: productsData, isFetching } = useGetProductListQuery(filteredParams)
   const { data: categoriesData } = useGetCategoryListQuery()
-  const SKELETON_COUNT = 6
+  const SKELETON_COUNT = 3
+
+  const handleFilterChange = (newFilters) => {
+    dispatch(setFilter(newFilters))
+  }
 
   return (
     <>
@@ -32,20 +43,16 @@ export default function ProductList() {
           <div className="lg:grid grid-cols-5">
             <div className="col-span-1">
               <ProductFilterSidebar
-                queryConfig={queryConfig}
+                queryParams={filteredParams}
                 categories={categoriesData?.data || []}
               />
             </div>
             <div className="col-span-4 mt-6 lg:mt-0">
-              <div className="py-2 px-3 border rounded-full cursor-pointer w-max">
-                <select className="w-full text-sm">
-                  <option value={1}>Price, low to hight</option>
-                  <option value={2}>Price, hight to low</option>
-                  <option value={3}>Date, old to new</option>
-                  <option value={4}>Date, new to old</option>
-                  <option value={5}>Best selling</option>
-                </select>
-              </div>
+              <ProductListControl
+                filters={filteredParams}
+                onFilterChange={handleFilterChange}
+                totalPages={productsData?.pagination?.totalPages}
+              />
               <ul className="lg:grid grid-cols-3 gap-5 mt-9 space-y-3 lg:space-y-0">
                 {isFetching
                   ? [...Array(SKELETON_COUNT)].map((_, index) => <ProductSkeleton key={index} />)

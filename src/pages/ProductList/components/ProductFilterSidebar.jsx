@@ -1,6 +1,5 @@
 import { PriceRangeSlider } from '@/components'
 import ROUTES from '@/constants/route'
-import { useCallback } from 'react'
 import { createSearchParams, Link, useNavigate } from 'react-router-dom'
 import { useDebounce } from '@/hooks/useDebounce'
 
@@ -8,24 +7,16 @@ export default function ProductFilterSidebar({ queryParams, categories }) {
   const navigate = useNavigate()
   const { category: categoryName } = queryParams
 
-  const handleNavigate = useCallback(
-    (values) => {
-      navigate({
-        pathname: ROUTES.PRODUCT_LIST,
-        search: createSearchParams({
-          ...queryParams,
-          minPrice: values.minPrice.toString(),
-          maxPrice: values.maxPrice.toString(),
-        }).toString(),
-      })
-    },
-    [navigate, queryParams]
-  )
-
-  const debouncedNavigate = useDebounce(handleNavigate, 500)
-  const handleRangeChange = (values) => {
-    debouncedNavigate(values)
-  }
+  const handleRangeChange = useDebounce((values) => {
+    navigate({
+      pathname: ROUTES.PRODUCT_LIST,
+      search: createSearchParams({
+        ...queryParams,
+        minPrice: values.minPrice,
+        maxPrice: values.maxPrice,
+      }).toString(),
+    })
+  }, 500)
 
   return (
     <div className="p-0 lg:p-4">

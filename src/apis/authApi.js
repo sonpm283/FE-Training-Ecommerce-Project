@@ -26,7 +26,6 @@ export const authApi = rootApi.injectEndpoints({
       },
     }),
   }),
-  // sau này sẽ có nhiều file api như thế này  overrideExisting: false để khi injectEndpoints một api mới (ví dụng productsApi thì sẽ không bị đè authApi)
   overrideExisting: false,
 })
 

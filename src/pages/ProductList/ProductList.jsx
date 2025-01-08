@@ -4,23 +4,14 @@ import { Link } from 'react-router-dom'
 import ProductFilterSidebar from './components/ProductFilterSidebar'
 import { Pagination, PaginationSkeleton, Product, ProductSkeleton } from '@/components'
 import ProductListControl from './components/ProductListControl'
-// import useGetQueryParams from '@/hooks/useGetQueryParams'
-import { useDispatch } from 'react-redux'
-import { setFilter } from '@/redux/slices/productSlide'
-import { useQueryParams } from '@/hooks/useQueryParams'
+import useGetQueryParams from '@/hooks/useGetQueryParams'
 
 export default function ProductList() {
-  // const queryParams = useGetQueryParams()
-  const { filteredParams } = useQueryParams() 
-  const dispatch = useDispatch()
+  const filteredParams = useGetQueryParams()
 
   const { data: productsData, isFetching } = useGetProductListQuery(filteredParams)
   const { data: categoriesData } = useGetCategoryListQuery()
   const SKELETON_COUNT = 3
-
-  const handleFilterChange = (newFilters) => {
-    dispatch(setFilter(newFilters))
-  }
 
   return (
     <>
@@ -50,7 +41,6 @@ export default function ProductList() {
             <div className="col-span-4 mt-6 lg:mt-0">
               <ProductListControl
                 filters={filteredParams}
-                onFilterChange={handleFilterChange}
                 totalPages={productsData?.pagination?.totalPages}
               />
               <ul className="lg:grid grid-cols-3 gap-5 mt-9 space-y-3 lg:space-y-0">

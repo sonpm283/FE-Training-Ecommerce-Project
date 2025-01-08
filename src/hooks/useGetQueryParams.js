@@ -12,6 +12,7 @@ export default function useGetQueryParams() {
     maxPrice: queryParams.maxPrice,
     minPrice: queryParams.minPrice,
     category: queryParams.category,
+    sort: queryParams.sort,
   }
 
   // remove undefined value

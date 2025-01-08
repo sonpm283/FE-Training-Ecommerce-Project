@@ -26,9 +26,6 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
   const isTokenExpired =
     result?.error?.status === 401 && result?.error?.data?.message === 'Token has expired.'
 
-  // Check if there is any other 401 error
-  const isUnauthorized = result?.error?.status === 401
-
   if (isTokenExpired) {
     // Get refresh token from redux store
     const refreshToken = api.getState().auth.refreshToken
@@ -61,11 +58,6 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       // Retry original request with new access token
       result = await baseQuery(args, api, extraOptions)
     }
-  } else if (isUnauthorized) {
-    // Handle other 401 errors by logging out and redirecting to login
-    // api.dispatch(logout())
-    // window.location.href = '/login'
-    // return result
   }
 
   return result

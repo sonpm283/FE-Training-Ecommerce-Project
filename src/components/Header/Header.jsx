@@ -1,5 +1,6 @@
 import ROUTES from '@/constants/route'
 import MenuProfile from '@components/MenuProfile'
+import { SearchInput } from '@components/index'
 import { useSelectUser } from '@hooks/useSelectUser'
 import { Link } from 'react-router-dom'
 
@@ -14,18 +15,8 @@ export default function Header() {
             <img className="max-w-full" src="/src/assets/logo.webp" alt="Darion" />
           </Link>
         </h1>
-        <div className="relative ml-auto lg:mr-20 max-w-[500px] w-full hidden xl:block">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full px-4 py-2 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <span>
-              <img className="size-5" src="/src/assets/ico_search.png" />
-            </span>
-          </div>
-        </div>
+        
+        <SearchInput />
         <nav className="mr-28 hidden lg:block ml-auto">
           <ul className="flex items-center gap-10">
             <li className="relative after:absolute after:h-[1.5px] after:bg-black after:left-0 after:bottom-[-2px] after:transition-all after:duration-300 after:w-full after:scale-x-0 hover:after:-scale-x-100">

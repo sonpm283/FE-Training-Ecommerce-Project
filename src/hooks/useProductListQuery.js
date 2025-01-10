@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import { useNavigate } from 'react-router-dom'
 import ROUTES from '@/constants/route'
 import { createSearchParams } from 'react-router-dom'
@@ -14,13 +14,9 @@ export const useProductListQuery = () => {
       ...newParams,
     }
 
-    const filteredParams = Object.fromEntries(
-      Object.entries(params).filter(([_, value]) => value !== '' && value !== undefined)
-    )
-
     return {
       pathname: ROUTES.PRODUCT_LIST,
-      search: createSearchParams(filteredParams).toString(),
+      search: createSearchParams(params).toString(),
     }
   }
 

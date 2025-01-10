@@ -1,4 +1,7 @@
+import { StarRating } from "@components/index";
+
 export default function Product({ product }) {
+  
   return (
     <li className="mt-6 md:mt-0 text-center group relative">
       <a href="product-detail.html" className="bg-red">
@@ -34,13 +37,11 @@ export default function Product({ product }) {
         <div className="rounded-xl overflow-hidden bg-white lg:h-[385px]">
           <img className="block size-full object-cover" src={product?.imageUrl} />
         </div>
-        <div className="flex justify-center items-center gap-1 mt-5">
-          <img className="size-13 inline-block" src="/src/assets/ico_star_active.png" />
-          <img className="size-13 inline-block" src="/src/assets/ico_star_gray.png" />
-          <img className="size-13 inline-block" src="/src/assets/ico_star_gray.png" />
-          <img className="size-13 inline-block" src="/src/assets/ico_star_gray.png" />
-          <img className="size-13 inline-block" src="/src/assets/ico_star_gray.png" />
+
+        <div className="mt-5">
+          <StarRating rating={product?.rating || 0} />
         </div>
+
         <h3 className="text-15 mt-2">{product?.name}</h3>
       </a>
       <div className="mt-2 relative h-5 overflow-hidden">

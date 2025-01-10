@@ -1,6 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import authReducer from '@redux/slices/authSlice'
-// import productReducer from '@redux/slices/productSlide'
 import { rootApi } from '@apis/rootApi'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
@@ -15,7 +14,6 @@ const rootPersistConfig = {
 
 const reducers = combineReducers({
   auth: authReducer,
-  // product: productReducer,
   [rootApi.reducerPath]: rootApi.reducer,
 })
 

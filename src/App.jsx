@@ -5,6 +5,7 @@ import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-rou
 import { lazy } from 'react'
 import { useAuth } from '@hooks/useAuth'
 import { useSelectUser } from '@hooks/useSelectUser'
+import { ErrorBoundary } from './components'
 
 const ProductList = lazy(() => import('@pages/ProductList'))
 const HomePage = lazy(() => import('@pages/HomePage'))
@@ -16,12 +17,7 @@ const OrderHistory = lazy(() => import('@pages/User/OrderHistory'))
 const NotFound = lazy(() => import('@pages/404'))
 
 const ProtectedRoute = () => {
-  const { isAuthenticated, isLoading } = useAuth()
-
-  if (isLoading) {
-    return <p>Loading...</p>
-  }
-
+  const { isAuthenticated } = useAuth()
   if (!isAuthenticated) return <Navigate to="/login" replace={true} />
 
   return <Outlet />
@@ -46,7 +42,11 @@ export default function App() {
       element: <MainLayout />,
       children: [
         {
-          element: <PublicRoute />,
+          element: (
+            <ErrorBoundary>
+              <PublicRoute />
+            </ErrorBoundary>
+          ),
           children: [
             {
               path: ROUTES.HOME,
@@ -63,7 +63,11 @@ export default function App() {
           ],
         },
         {
-          element: <ProtectedRoute />,
+          element: (
+            <ErrorBoundary>
+              <ProtectedRoute />
+            </ErrorBoundary>
+          ),
           children: [
             {
               path: ROUTES.PROFILE,
@@ -85,7 +89,11 @@ export default function App() {
       element: <AuthLayout />,
       children: [
         {
-          element: <UnauthorizedRoute />,
+          element: (
+            <ErrorBoundary>
+              <UnauthorizedRoute />
+            </ErrorBoundary>
+          ),
           children: [
             {
               path: ROUTES.LOGIN,

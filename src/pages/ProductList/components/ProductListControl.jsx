@@ -6,14 +6,14 @@ export default function ProductListControl({ filters, totalPages }) {
   const { sort, page } = filters
   const currentPage = +page
   const isFirstPage = currentPage === 1
-  const isLastPage = currentPage === totalPages || totalPages === 0
+  const isLastPage = currentPage === totalPages
 
   const baseButtonClass = 'py-1 px-3 border text-sm rounded-md transition-colors'
   const activeButtonClass = 'bg-black text-white hover:bg-white hover:text-black hover:border-black'
   const disabledButtonClass = 'bg-midGray text-white cursor-not-allowed pointer-events-none'
 
   const handleSortChange = (event) => {
-    const newSort = event.target.value
+    const { value: newSort } = event.target
     navigateToProductList({ sort: newSort, page: '1' })
   }
 
@@ -21,15 +21,15 @@ export default function ProductListControl({ filters, totalPages }) {
     <div className="flex items-center justify-between">
       <div className="py-2 px-3 border rounded-full cursor-pointer w-max">
         <select
-          className="w-full text-sm outline-none"
+          className="w-full text-sm outline-none cursor-pointer"
           value={sort || 'default'}
           onChange={handleSortChange}
         >
-          <option value="default">Default sorting</option>
-          <option value="price_asc">Price, low to high</option>
-          <option value="price_desc">Price, high to low</option>
-          <option value="newest">Date, new to old</option>
-          <option value="oldest">Date, old to new</option>
+          <option value="default">Default Sorting</option>
+          <option value="price_asc">Price, Low to High</option>
+          <option value="price_desc">Price, High to Low</option>
+          <option value="newest">Date, New to Old</option>
+          <option value="oldest">Date, Old to New</option>
         </select>
       </div>
 
@@ -38,7 +38,7 @@ export default function ProductListControl({ filters, totalPages }) {
           <div className="flex items-center gap-1">
             <span>{currentPage}</span>
             <span>/</span>
-            <span className="text-midGray">{totalPages}</span>
+            <span className="text-midGray">{totalPages == 0 ? 1 : totalPages}</span>
           </div>
           <div className="flex items-center gap-1">
             <Link

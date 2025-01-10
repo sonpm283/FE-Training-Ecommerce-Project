@@ -7,7 +7,7 @@ export default function useGetQueryParams() {
 
   const queries = {
     page: queryParams.page || '1',
-    limit: queryParams.limit || '12',
+    limit: queryParams.limit || '3',
     search: queryParams.search,
     maxPrice: queryParams.maxPrice,
     minPrice: queryParams.minPrice,

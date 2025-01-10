@@ -2,16 +2,16 @@ import { useGetCategoryListQuery } from '@/apis/categoryApi'
 import { useGetProductListQuery } from '@/apis/productsApi'
 import { Link } from 'react-router-dom'
 import ProductFilterSidebar from './components/ProductFilterSidebar'
-import { Pagination, PaginationSkeleton, Product, ProductSkeleton } from '@/components'
+import { Pagination, Product, ProductSkeleton } from '@/components'
 import ProductListControl from './components/ProductListControl'
 import useGetQueryParams from '@/hooks/useGetQueryParams'
 
 export default function ProductList() {
   const filteredParams = useGetQueryParams()
-
   const { data: productsData, isFetching } = useGetProductListQuery(filteredParams)
   const { data: categoriesData } = useGetCategoryListQuery()
   const SKELETON_COUNT = 3
+  const totalPages = productsData?.pagination?.totalPages
 
   return (
     <>
@@ -39,10 +39,7 @@ export default function ProductList() {
               />
             </div>
             <div className="col-span-4 mt-6 lg:mt-0">
-              <ProductListControl
-                filters={filteredParams}
-                totalPages={productsData?.pagination?.totalPages}
-              />
+              <ProductListControl filters={filteredParams} totalPages={totalPages || 1} />
               <ul className="lg:grid grid-cols-3 gap-5 mt-9 space-y-3 lg:space-y-0">
                 {isFetching
                   ? [...Array(SKELETON_COUNT)].map((_, index) => <ProductSkeleton key={index} />)
@@ -56,7 +53,11 @@ export default function ProductList() {
                   </div>
                 )}
               </ul>
-              <div className="mt-14">{isFetching ? <PaginationSkeleton /> : <Pagination />}</div>
+              <div className="mt-14">
+                {!!totalPages && (
+                  <Pagination totalPages={totalPages} filteredParams={filteredParams} />
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -94,7 +94,7 @@ const PriceRangeSlider = ({
       </div>
 
       <p className="text-sm font-semibold mt-5">
-        Range :  {minVal}.00{currencyText} - {maxVal}.00{currencyText}
+        Range : {minVal}.00{currencyText} - {maxVal}.00{currencyText}
       </p>
     </div>
   )

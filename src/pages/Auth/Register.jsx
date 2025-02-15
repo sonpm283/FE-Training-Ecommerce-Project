@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Input from '@components/Input'
 import Button from '@components/Button'
 import useRegisterHandler from '@hooks/useRegisterHandler'
-import ROUTES from '@/constants/route'
+import ROUTES from '@/constants/routes'
 
 export default function Register() {
   const { handleSubmit, onSubmit, control, errors, isLoading } = useRegisterHandler()

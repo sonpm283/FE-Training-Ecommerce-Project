@@ -8,9 +8,14 @@ export const productApi = rootApi.injectEndpoints({
         params: queryParams,
       }),
     }),
+    getProductDetail: builder.query({
+      query: (productId) => ({
+        url: `products/${productId}`,
+      }),
+    }),
   }),
 
   overrideExisting: false,
 })
 
-export const { useGetProductListQuery } = productApi
+export const { useGetProductListQuery, useGetProductDetailQuery } = productApi

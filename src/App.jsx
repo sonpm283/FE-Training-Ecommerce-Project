@@ -1,20 +1,21 @@
 import AuthLayout from '@components/Layout/AuthLayout'
 import MainLayout from '@components/Layout/MainLayout'
-import ROUTES from './constants/route'
+import { ROUTES } from './constants/routes'
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom'
 import { lazy } from 'react'
 import { useAuth } from '@hooks/useAuth'
 import { useSelectUser } from '@hooks/useSelectUser'
-import { ErrorBoundary } from './components'
 
 const ProductList = lazy(() => import('@pages/ProductList'))
-const HomePage = lazy(() => import('@pages/HomePage'))
+const HomePage = lazy(() => import('@pages/Home/HomePage'))
 const Register = lazy(() => import('@pages/Auth/Register'))
 const Login = lazy(() => import('@pages/Auth/Login'))
 const Profile = lazy(() => import('@pages/User/Profile'))
 const ChangePassword = lazy(() => import('@pages/User/ChangePassword'))
 const OrderHistory = lazy(() => import('@pages/User/OrderHistory'))
 const NotFound = lazy(() => import('@pages/404'))
+const Cart = lazy(() => import('@pages/Cart/Cart'))
+const ProductDetail = lazy(() => import('@pages/ProductDetail/ProductDetail'))
 
 const ProtectedRoute = () => {
   const { isAuthenticated } = useAuth()
@@ -42,11 +43,7 @@ export default function App() {
       element: <MainLayout />,
       children: [
         {
-          element: (
-            <ErrorBoundary>
-              <PublicRoute />
-            </ErrorBoundary>
-          ),
+          element: <PublicRoute />,
           children: [
             {
               path: ROUTES.HOME,
@@ -57,17 +54,21 @@ export default function App() {
               element: <ProductList />,
             },
             {
+              path: ROUTES.CART,
+              element: <Cart />,
+            },
+            {
+              path: ROUTES.PRODUCT_DETAIL,
+              element: <ProductDetail />,
+            },
+            {
               path: '*',
               element: <NotFound />,
             },
           ],
         },
         {
-          element: (
-            <ErrorBoundary>
-              <ProtectedRoute />
-            </ErrorBoundary>
-          ),
+          element: <ProtectedRoute />,
           children: [
             {
               path: ROUTES.PROFILE,
@@ -89,11 +90,7 @@ export default function App() {
       element: <AuthLayout />,
       children: [
         {
-          element: (
-            <ErrorBoundary>
-              <UnauthorizedRoute />
-            </ErrorBoundary>
-          ),
+          element: <UnauthorizedRoute />,
           children: [
             {
               path: ROUTES.LOGIN,

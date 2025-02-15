@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { registerSchema } from '@schemas/authSchemas'
 import { toast } from 'react-toastify'
 import { useRegisterMutation } from '@apis/authApi'
-import ROUTES from '@/constants/route'
+import ROUTES from '@/constants/routes'
 
 const useRegisterHandler = () => {
   const navigate = useNavigate()

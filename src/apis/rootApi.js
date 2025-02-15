@@ -1,4 +1,4 @@
-import ROUTES from '@/constants/route'
+import { ROUTES } from '@/constants/routes'
 import { logout, setUserData } from '@redux/slices/authSlice'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 

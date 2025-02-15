@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { logout } from '@redux/slices/authSlice'
 import Button from '@components/Button'
 import { useSelectUser } from '@hooks/useSelectUser'
-import ROUTES from '@/constants/route'
+import { ROUTES } from '@/constants/routes'
 
 export default function MenuProfile() {
   const [isOpen, setIsOpen] = useState(false)

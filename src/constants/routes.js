@@ -1,4 +1,4 @@
-const ROUTES = {
+export const ROUTES = {
   HOME: '/',
   PRODUCT_LIST: '/products',
   PROFILE: '/user/profile',
@@ -7,7 +7,6 @@ const ROUTES = {
   LOGIN: '/login',
   REGISTER: '/register',
   LOGOUT: '/logout',
-  PRODUCT_DETAIL: '/products/:id',
+  PRODUCT_DETAIL: '/products/:productId',
+  CART: '/cart',
 }
-
-export default ROUTES

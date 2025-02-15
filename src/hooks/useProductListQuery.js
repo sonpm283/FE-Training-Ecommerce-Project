@@ -1,6 +1,5 @@
-
 import { useNavigate } from 'react-router-dom'
-import ROUTES from '@/constants/route'
+import { ROUTES } from '@/constants/routes'
 import { createSearchParams } from 'react-router-dom'
 import useGetQueryParams from './useGetQueryParams'
 

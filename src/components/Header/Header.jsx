@@ -1,11 +1,21 @@
-import ROUTES from '@/constants/route'
+import { ROUTES } from '@/constants/routes'
 import MenuProfile from '@components/MenuProfile'
 import { SearchInput } from '@components/index'
 import { useSelectUser } from '@hooks/useSelectUser'
 import { Link } from 'react-router-dom'
+import { useGetCartQuery } from '@/apis/cartApi'
 
 export default function Header() {
   const currentUser = useSelectUser()
+  const { data: cartData } = useGetCartQuery(undefined, {
+    skip: !currentUser?.name, // Skip fetching if user is not logged in
+    refetchOnMountOrArgChange: true // Refetch when component mounts or currentUser changes
+  })
+
+  // Reset cart count when user is not logged in
+  const cartItemCount = currentUser?.name 
+    ? cartData?.cart?.items?.reduce((total, item) => total + item.quantity, 0) || 0 
+    : 0
 
   return (
     <header className="py-5 lg:py-8 sticky top-0 z-10 bg-white">
@@ -48,17 +58,16 @@ export default function Header() {
           )}
 
           <a href="#none" className="relative">
-            {/* <span className="absolute -top-[8px] -right-[10px] size-[18px] bg-black text-white rounded-full text-xs grid place-items-center">
-              10
-            </span> */}
             <img className="size-5" src="/src/assets/ico_heart.png" />
           </a>
-          <a href="shopping-cart.html" className="relative">
-            <span className="absolute -top-[8px] -right-[10px] size-[18px] bg-black text-white rounded-full text-xs grid place-items-center">
-              3
-            </span>
+          <Link to={ROUTES.CART} className="relative">
+            {cartItemCount > 0 && (
+              <span className="absolute -top-[8px] -right-[10px] size-[18px] bg-black text-white rounded-full text-xs grid place-items-center">
+                {cartItemCount}
+              </span>
+            )}
             <img className="size-5" src="/src/assets/ico_bag.png" />
-          </a>
+          </Link>
 
           {currentUser?.name && <MenuProfile />}
         </div>
